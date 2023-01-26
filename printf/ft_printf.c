@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:54:10 by minkim3           #+#    #+#             */
-/*   Updated: 2023/01/25 20:51:01 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/01/26 21:10:14 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t *index, t_options *string_info)
 	return (ft_option_error(string_info));
 }
 
-static int	printer(const char *format, va_list ap, \
+static int	printer(const char *format, va_list *ap, \
 t_options *string_info, int *strlen)
 {
 	size_t		index;
@@ -58,10 +58,10 @@ t_options *string_info, int *strlen)
 	return (0);
 }
 
-static int	ft_free_fin(va_list ap, t_options *string_info, int strlen)
+static int	ft_free_fin(va_list *ap, t_options *string_info, int strlen)
 {
 	free(string_info);
-	va_end(ap);
+	va_end(*ap);
 	return (strlen);
 }
 
@@ -77,7 +77,7 @@ int	ft_printf(const char *format, ...)
 	if (string_info == NULL)
 		return (-1);
 	va_start(ap, format);
-	if (printer(format, ap, string_info, &strlen) == -1)
-		return (ft_error_quit(ap, string_info));
-	return (ft_free_fin(ap, string_info, strlen));
+	if (printer(format, &ap, string_info, &strlen) == -1)
+		return (ft_error_quit(&ap, string_info));
+	return (ft_free_fin(&ap, string_info, strlen));
 }

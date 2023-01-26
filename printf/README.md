@@ -54,13 +54,13 @@ int	ft_printf(const char *format, ...)
 	if (string_info == NULL)
 		return (-1);
 	va_start(ap, format);
-	if (printer(format, ap, string_info, &strlen) == -1)
-		return (ft_error_quit(ap, string_info));
-	return (ft_free_fin(ap, string_info, strlen));
+	if (printer(format, &ap, string_info, &strlen) == -1)
+		return (ft_error_quit(&ap, string_info));
+	return (ft_free_fin(&ap, string_info, strlen));
 }
 ```
 ```c
-static int	printer(const char *format, va_list ap, \
+static int	printer(const char *format, va_list *ap, \
 t_options *string_info, int *strlen)
 {
 	size_t		index;
@@ -220,21 +220,21 @@ int	ft_option_error(t_options *string_info)
 ```
 ### apply option
 ```c
-int	ft_apply_option(va_list ap, t_options *string_info)
+int	ft_apply_option(va_list *ap, t_options *string_info)
 {
 	int	type;
 
 	type = ft_type_checker(string_info->type);
 	if (type == 1)
-		ft_apply_int(string_info, va_arg(ap, int));
+		ft_apply_int(string_info, va_arg(*ap, int));
 	else if (type == 2)
 		ft_apply_percent(string_info, '%');
 	else if (type == 3)
-		ft_apply_string(string_info, va_arg(ap, char *));
+		ft_apply_string(string_info, va_arg(*ap, char *));
 	else if (type == 4)
-		ft_apply_pointer(string_info, va_arg(ap, unsigned long long));
+		ft_apply_pointer(string_info, va_arg(*ap, unsigned long long));
 	else if (type == 5)
-		ft_apply_unsigned_int(string_info, va_arg(ap, unsigned int));
+		ft_apply_unsigned_int(string_info, va_arg(*ap, unsigned int));
 	if (string_info->value != NULL)
 		string_info->strlen = ft_strlen(string_info->value);
 	ft_apply_precision(string_info);

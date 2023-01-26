@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_apply_options.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:18:56 by minkim3           #+#    #+#             */
-/*   Updated: 2023/01/26 13:58:01 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/01/26 21:10:33 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,21 @@ static void	ft_apply_width(t_options *string_info)
 	string_info->space = cpy_string;
 }
 
-int	ft_apply_option(va_list ap, t_options *string_info)
+int	ft_apply_option(va_list *ap, t_options *string_info)
 {
 	int	type;
 
 	type = ft_type_checker(string_info->type);
 	if (type == 1)
-		ft_apply_int(string_info, va_arg(ap, int));
+		ft_apply_int(string_info, va_arg(*ap, int));
 	else if (type == 2)
 		ft_apply_percent(string_info, '%');
 	else if (type == 3)
-		ft_apply_string(string_info, va_arg(ap, char *));
+		ft_apply_string(string_info, va_arg(*ap, char *));
 	else if (type == 4)
-		ft_apply_pointer(string_info, va_arg(ap, unsigned long long));
+		ft_apply_pointer(string_info, va_arg(*ap, unsigned long long));
 	else if (type == 5)
-		ft_apply_unsigned_int(string_info, va_arg(ap, unsigned int));
+		ft_apply_unsigned_int(string_info, va_arg(*ap, unsigned int));
 	if (string_info->value != NULL)
 		string_info->strlen = ft_strlen(string_info->value);
 	ft_apply_precision(string_info);

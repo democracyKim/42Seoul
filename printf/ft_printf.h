@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:53:07 by minkim3           #+#    #+#             */
-/*   Updated: 2023/01/25 20:53:06 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/01/26 21:10:24 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_precision_check(const char *format, size_t *index, \
 		t_options *string_info);
 int		ft_type_checker(char c);
 int		ft_option_error(t_options *string_info);
-int		ft_error_quit(va_list ap, t_options *string_info);
+int		ft_error_quit(va_list *ap, t_options *string_info);
 void	ft_decimal_to_string(t_options *string_info, int decimal);
 void	ft_decimal_to_hexadecimal(t_options *string_info, unsigned int decimal);
 char	*ft_pointer_to_lowercase_hexadecimal(unsigned long long decimal);
@@ -59,7 +59,7 @@ void	ft_apply_unsigned_int(t_options *string_info, unsigned int value);
 void	ft_apply_percent(t_options *string_info, int value);
 void	ft_apply_string(t_options *string_info, char *value);
 void	ft_apply_pointer(t_options *string_info, unsigned long long value);
-int		ft_apply_option(va_list ap, t_options *string_info);
+int		ft_apply_option(va_list *ap, t_options *string_info);
 void	ft_apply_flag(t_options *string_info);
 char	*ft_strjoin_three(char	*s1, char *s2, char *s3);
 char	*ft_get_cpy_with_this(t_options *string_info, char star, int len);

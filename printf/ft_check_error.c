@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:26:44 by minkim3           #+#    #+#             */
-/*   Updated: 2023/01/21 22:41:19 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/01/26 21:07:02 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int	ft_option_error(t_options *string_info)
 	return (0);
 }
 
-int	ft_error_quit(va_list ap, t_options *string_info)
+int	ft_error_quit(va_list *ap, t_options *string_info)
 {
 	free(string_info);
-	va_end(ap);
+	va_end(*ap);
 	return (-1);
 }
