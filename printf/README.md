@@ -5,7 +5,7 @@
 - "*value" is a string after 'variable argument' converted to 'char *'
 - "*space" is a string with zero or space for the option 'width'. 
 - "*prefix" and "val_minus" are variables for checking whether the input variable argument is positive or negative. 
-- "val_zero" and "val_null" are for exceptional cases where the value is zero or null. 
+- "val_zero" and "val_null" are for exceptional cases where the value is zero or null.  
 - "strlen" checks for a length of "string", "string + precision", "print". 
 - "malloc_error" is a variable about telling malloc error. If memory allocation fails, then this flag turns to 1. 
 
