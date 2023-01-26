@@ -1,7 +1,7 @@
 # Make your own printf function!
 
 ## header
-"t_options' is a structure for storing information about options. "flag_minus" to "type" are the basic options in the printf function. "value" to "prefix" are a tool for making the converse string more easily. 
+"t_options' is a structure for storing information about options. "flag_minus" to "type" are the basic options in the printf function. "value" to "prefix" are a tool for making the converse string more easily.  
 - "*value" is a string after 'variable argument' converted to 'char *'
 - "*space" is a string with zero or space for the option 'width'. 
 - "*prefix" and "val_minus" are variables for checking whether the input variable argument is positive or negative. 
