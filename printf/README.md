@@ -439,7 +439,7 @@ static void	minus_have(t_options *string_info)
 	string_info->print = string;
 }
 ```
-### flag minus; don't have a flag minus
+### flag minus; doesn't have a flag minus
 ```c
 static void	minus_have_not(t_options *string_info)
 {
