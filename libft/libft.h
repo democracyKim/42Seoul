@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:45:26 by minkim3           #+#    #+#             */
-/*   Updated: 2022/12/04 21:55:42 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/01/17 17:12:53 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
+char	*ft_new_string(size_t strlen);
+char	*ft_new_string_with_value(char *value);
+char	*new_string_with_this(char star, size_t strlen);
+void	ft_free(void *thing);
+char	*ft_itoa_extension(unsigned long long n);
 
 #endif
