@@ -246,13 +246,6 @@ int	ft_apply_option(va_list ap, t_options *string_info)
 	return (string_info->strlen);
 }
 ```
-### apply precision
-	// 숫자의 경우 총 자릿수가 p가 되도록 0을 왼쪽 빈 공간에 채워 넣는다.
-	// precision만큼 복사, 마지막에 null
-
-	// width 길이만큼 ' '을 앞에 추가하고 널을 넣는다.
-	// 문자의 길이가 width보다 길면 무시
-
 ### apply precision; string type
 ```c
 static void	ft_apply_precision(t_options *string_info)
