@@ -63,9 +63,9 @@ SSH (Secure Shell) is a network protocol that allows secure remote login and oth
 
 The most common use of SSH is to log in to a remote server, allowing users to access and control the server as if they were physically present at the computer. SSH can also be used to securely transfer files between computers, or to establish a secure connection to a network device such as a router or switch.
 
-To use SSH, a client program (such as the OpenSSH client) is used to connect to an SSH server running on the remote machine. The client authenticates the server using public-key cryptography, and then the two systems establish an encrypted connection. Once the connection is established, the client can run commands on the server or transfer files between the two systems.
+To use SSH, a client program (such as the OpenSSH client) is used to connect to an SSH server running on the remote machine. The client authenticates the server using public-key cryptography, and then the two systems establish an encrypted connection. Once the connection is established, the client can run commands on the server or transfer files between the two systems.  
 
-Overall, SSH is an important tool for securely accessing and managing remote systems over an insecure network, and is widely used in network administration and other fields.
+Overall, SSH is an important tool for securely accessing and managing remote systems over an insecure network, and is widely used in network administration and other fields. 
 
 ### What is UFW?
 UFW stands for "Uncomplicated Firewall." It is a command-line tool for configuring and managing a firewall on Ubuntu and Debian Linux systems. UFW is designed to be easy to use, and it provides a simple, command-line interface for controlling network traffic. It is a front-end for the iptables firewall, and it is the default firewall configuration tool on Ubuntu. With UFW, you can allow or deny incoming or outgoing traffic based on various criteria such as IP address, port number, or protocol. It also provides a set of commands to check the firewall status, rules and to add or delete rules.
