@@ -67,7 +67,6 @@ static int	ft_free_fin(va_list *ap, t_options *string_info, int strlen)
 
 int	ft_printf(const char *format, ...)
 {
-	size_t		index;
 	va_list		ap;
 	t_options	*string_info;
 	int			strlen;

@@ -21,6 +21,7 @@ static void	minus_have(t_options *string_info)
 
 	prefix = string_info->prefix;
 	space = string_info->space;
+	len = 0;
 	if (string_info->val_null == 1)
 	{
 		if (space != NULL)

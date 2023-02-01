@@ -56,6 +56,7 @@ static void	ft_apply_precision(t_options *string_info)
 		return ;
 	precision = string_info->precision;
 	string = string_info->value;
+	new_string = NULL;
 	if (string == NULL || string_info->type == 's')
 	{
 		if (string == NULL)
@@ -78,7 +79,7 @@ static void	ft_apply_width(t_options *string_info)
 
 	string = string_info->value;
 	if ((string_info->width_have == 0) || (string_info->malloc_error == 1) \
-	|| (ft_strlen(string) >= string_info->width))
+	|| (ft_strlen(string) >= (size_t)(string_info->width)))
 		return ;
 	if ((string_info->val_null == 1) || ((string_info->val_minus == 0) \
 	&& (string_info->flag_space == 1 || string_info->flag_plus == 1)))

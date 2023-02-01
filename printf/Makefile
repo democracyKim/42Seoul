@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
+CFLAGS = -Wall -Wextra -Werror
 SOURCES = ft_printf.c ft_digit_to_string.c ft_check_error.c ft_check_options.c \
 			ft_apply_type.c ft_apply_options.c ft_apply_flag.c \
 			ft_helper.c ft_malloc_error.c ft_minus_and_print.c
