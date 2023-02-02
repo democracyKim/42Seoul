@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_new_string_with_value.c                         :+:      :+:    :+:   */
+/*   ft_new_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 16:14:45 by minkim3           #+#    #+#             */
-/*   Updated: 2023/01/18 16:16:48 by minkim3          ###   ########.fr       */
+/*   Created: 2023/01/04 20:27:02 by minkim3           #+#    #+#             */
+/*   Updated: 2023/01/18 16:15:52 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_new_string_with_value(char *value)
+char	*ft_new_string(size_t strlen)
 {
 	char	*new_string;
-	int		strlen;
 
-	strlen = ft_strlen(value);
-	new_string = ft_new_string(strlen + 1);
-	if (new_string == NULL)
+	new_string = (char *)malloc(sizeof(char) * (strlen));
+	if (!new_string)
 		return (NULL);
-	ft_strlcpy(new_string, value, strlen + 1);
 	return (new_string);
 }

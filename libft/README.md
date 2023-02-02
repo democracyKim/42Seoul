@@ -261,16 +261,18 @@ char *ft_new_string(size_t strlen)
 }
 ```
 
-### new string with value
+### strdup : new string with value
 ```c
-char *ft_new_string_with_value(char *value)
+char	*ft_strdup(const char *s1)
 {
-	char	*new_string;
-	int		strlen;
+	char	*arr;
+	size_t	arr_size;
 
-	strlen = ft_strlen(value);
-	new_string = ft_new_string(strlen + 1);
-	ft_strlcpy(new_string, value, strlen + 1);
-	return (new_string);
+	arr_size = ft_strlen(s1) + 1;
+	arr = (void *)malloc(sizeof(char) * (arr_size));
+	if (!arr)
+		return (NULL);
+	ft_memmove(arr, s1, arr_size);
+	return (arr);
 }
 ```

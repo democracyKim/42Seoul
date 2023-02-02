@@ -62,12 +62,12 @@ void	ft_apply_string(t_options *string_info, char *value)
 {
 	if (!value)
 	{
-		string_info->value = ft_new_string_with_value("(null)");
+		string_info->value = ft_strdup("(null)");
 		if (string_info->value == NULL)
 			return (ft_malloc_error_void(string_info));
 		return ;
 	}
-	string_info->value = ft_new_string_with_value(value);
+	string_info->value = ft_strdup(value);
 	if (string_info->value == NULL)
 		return (ft_malloc_error_void(string_info));
 }
@@ -76,7 +76,7 @@ void	ft_apply_pointer(t_options *string_info, unsigned long long value)
 {
 	if (!value)
 	{
-		string_info->value = ft_new_string_with_value("0x0");
+		string_info->value = ft_strdup("0x0");
 		if (string_info->value == NULL)
 			return (ft_malloc_error_void(string_info));
 		return ;

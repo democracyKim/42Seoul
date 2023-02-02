@@ -17,7 +17,7 @@ void	ft_decimal_to_string(t_options *string_info, int decimal)
 	if (decimal == INT_MIN)
 	{
 		string_info->val_minus = 1;
-		string_info->value = ft_new_string_with_value("2147483648");
+		string_info->value = ft_strdup("2147483648");
 		if (string_info->value == NULL)
 			return (ft_malloc_error_void(string_info));
 		return ;
@@ -52,7 +52,7 @@ void	ft_decimal_to_hexadecimal(t_options *string_info, unsigned int decimal)
 
 	if (decimal == 0)
 	{
-		string_info->value = ft_new_string_with_value("0");
+		string_info->value = ft_strdup("0");
 		if (string_info->value == NULL)
 			return (ft_malloc_error_void(string_info));
 		return ;
@@ -81,7 +81,7 @@ char	*ft_pointer_to_lowercase_hexadecimal(unsigned long long decimal)
 
 	if (decimal == 0)
 	{
-		result = ft_new_string_with_value("0");
+		result = ft_strdup("0");
 		return (result);
 	}
 	digit_number = \

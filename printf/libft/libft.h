@@ -65,9 +65,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 char	*ft_new_string(size_t strlen);
-char	*ft_new_string_with_value(char *value);
-char	*new_string_with_this(char star, size_t strlen);
-void	ft_free(void *thing);
 char	*ft_itoa_extension(unsigned long long n);
 
 #endif

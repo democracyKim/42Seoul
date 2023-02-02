@@ -60,11 +60,11 @@ char	*ft_strjoin_three(char	*s1, char *s2, char *s3)
 	else if (!s3 && s1 != NULL && s2 != NULL)
 		string = ft_strjoin(s1, s2);
 	else if (s1)
-		string = ft_new_string_with_value(s1);
+		string = ft_strdup(s1);
 	else if (s2)
-		string = ft_new_string_with_value(s2);
+		string = ft_strdup(s2);
 	else
-		string = ft_new_string_with_value(s3);
+		string = ft_strdup(s3);
 	return (string);
 }
 
