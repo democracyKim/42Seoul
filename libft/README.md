@@ -129,27 +129,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 ## need to free() after use
 Need to free 'return value' after use.
 
-### strjoin
-```c
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*arr;
-	size_t	len_s1;
-	size_t	len_s2;
-
-	if (!s1 || !s2)
-		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	arr = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (!arr)
-		return (NULL);
-	ft_strlcpy(arr, s1, len_s1 + 1);
-	ft_strlcat(arr, s2, len_s1 + len_s2 + 1);
-	return (arr);
-}
-```
-
 ### substr
 ```c
 char	*ft_substr(char const *s, unsigned int start, size_t len)
