@@ -11,8 +11,9 @@ int main()
 	fd2 = open("./text2.txt", O_RDONLY);
 	if (fd == -1)
 		printf("file open error");
-	else
-		arr = get_next_line(fd);
+		
+	printf("\n-----------------------------\n");
+	arr = get_next_line(fd);
 	printf("%s", arr);
 	free(arr);
 
