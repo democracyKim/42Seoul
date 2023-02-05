@@ -2,7 +2,7 @@
 - [Libft][libft]
 - [Born2beroot][born2beroot]
 - [ft_printf][printf]
-- get_next_line
+- [get_next_line][gnl]
 
 ### Circle Two
 - push_swap
@@ -28,3 +28,4 @@
 [libft]: https://github.com/democracyKim/42Seoul/tree/master/libft
 [born2beroot]: https://github.com/democracyKim/42Seoul/tree/master/born2beRoot
 [printf]: https://github.com/democracyKim/42Seoul/tree/master/printf
+[gnl]: https://github.com/democracyKim/42Seoul/tree/master/get_next_line
