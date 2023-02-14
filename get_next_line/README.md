@@ -1,4 +1,5 @@
 # get_next_line
+- You can use at most 10 functions in this project. 
 
 ## Definition of Variables
 - char buffer[BUFFER_SIZE]: stores texts after the read function.  
