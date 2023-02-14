@@ -6,14 +6,17 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:45:26 by minkim3           #+#    #+#             */
-/*   Updated: 2023/01/17 17:12:53 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/14 13:32:02 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFFER_SIZE 8
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -66,5 +69,11 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 char	*ft_new_string(size_t strlen);
 char	*ft_itoa_extension(unsigned long long n);
+char	*get_next_line(int fd);
+ssize_t	find_char(const char *s, int c);
+size_t	ft_strlen(const char *s);
+char	*append_buffer(char const *s1, char const *s2, size_t len);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif
