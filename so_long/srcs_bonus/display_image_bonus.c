@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_image_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:45 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 15:55:20 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/21 23:04:11 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void	load_dino_sprites(t_game *map_info, int x, int y)
 {
 	static int	frame = 0;
 	static int	delay = 3;
+	void		*dino;
 
 	if (map_info->left == 1)
-		put_image(map_info, x, y, \
-			map_info->dino_left[frame / delay % 15]);
+		dino = map_info->dino_left[frame / delay % 15];
 	else
-		put_image(map_info, x, y, \
-			map_info->dino_right[frame / delay % 15]);
+		dino = map_info->dino_right[frame / delay % 15];
+	put_image(map_info, x, y, dino);
 	frame++;
 }
 
@@ -68,7 +68,6 @@ static void	display_map(t_game *map_info)
 
 int	display_image(t_game *map_info)
 {
-	static int	prev_moving_count;
 	char		*moving_count_str;
 
 	display_map(map_info);
@@ -78,6 +77,5 @@ int	display_image(t_game *map_info)
 	mlx_string_put(map_info->mlx, map_info->dino_advanture, \
 					20, 20, 0x0000FF, moving_count_str);
 	free(moving_count_str);
-	prev_moving_count = map_info->moving_count;
 	return (0);
 }
