@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 14:07:48 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:12:18 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	game_controller(t_game *map_info)
 	mlx_hook(map_info->dino_advanture, 17, 0, handle_close_button, NULL);
 	mlx_key_hook(map_info->dino_advanture, move_player, map_info);
 	mlx_loop_hook(map_info->mlx, render_loop, map_info);
+	mlx_loop(map_info->mlx);
 	return (0);
 }
 
@@ -34,11 +35,10 @@ void	so_long(char *map_file)
 
 	map_info = malloc(sizeof(t_game));
 	if (map_init(map_info, map_file) == ERROR)
-		finish_game(map_info);
+		exit(0);
 	if (check_map(map_info) == ERROR)
 		finish_game(map_info);
 	open_image(map_info);
 	game_controller(map_info);
-	mlx_loop(map_info->mlx);
 	finish_game(map_info);
 }
