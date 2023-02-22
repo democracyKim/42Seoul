@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:15:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 10:20:33 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 10:53:03 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct game_type
 	void	*spellbook;
 	int		left;
 	int		moving_count;
+	int		game_start;
 }	t_game;
 
 int		map_init(t_game *map_info, char *map_file);
@@ -54,7 +55,8 @@ void	so_long(char *map_file);
 int		check_map(t_game *map_info);
 int		check_route(t_game *map_info, int player_pos[2]);
 void	open_image(t_game *image);
-int		display_image(t_game *map_info);
+int		display_footprint(t_game *map_info);
+void	display_map(t_game *map_info);
 void	print_error(char *msg);
 void	print_messages(char *msg);
 int		move_player(int keycode, void *param);
@@ -62,5 +64,7 @@ void	move_enemy(t_game *map_info);
 int		handle_close_button(void *param);
 void	free_array(char **array, int size);
 void	finish_game(t_game *map_info);
+void	load_dino_sprites(t_game *map_info, int x, int y);
+void	put_image(t_game *map_info, int x, int y, void *img);
 
 #endif

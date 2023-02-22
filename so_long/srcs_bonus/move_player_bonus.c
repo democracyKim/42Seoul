@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 10:20:12 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 10:52:43 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void	move_result(t_game *map_info, int new_x, int new_y)
 	map_info->map[previous_y][previous_x] = '0';
 	map_info->player_position[1] = new_x;
 	map_info->player_position[0] = new_y;
+	put_image(map_info, previous_x, previous_y, map_info->road);
 	map_info->moving_count++;
 	print_messages("\nDino's footprint : ");
 	ft_putnbr_fd(map_info->moving_count, 1);
