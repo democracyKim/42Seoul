@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 10:31:54 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 11:11:57 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	randering(t_game *game)
+static int	rendering(t_game *game)
 {
 	if (game->game_start == 0)
 	{
@@ -31,7 +31,7 @@ static int	game_controller(t_game *map_info)
 {
 	mlx_hook(map_info->dino_advanture, 17, 0, handle_close_button, NULL);
 	mlx_key_hook(map_info->dino_advanture, move_player, map_info);
-	mlx_loop_hook(map_info->mlx, randering, map_info);
+	mlx_loop_hook(map_info->mlx, rendering, map_info);
 	mlx_loop(map_info->mlx);
 	return (0);
 }

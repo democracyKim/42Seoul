@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 14:07:02 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 11:09:19 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,10 @@ static int	move_enemy_in_direction(t_game *map_info, \
 		return (0);
 	map_info->map[new_y][new_x] = 'M';
 	map_info->map[enemy_position[0]][enemy_position[1]] = '0';
+	put_image(map_info, enemy_position[1], enemy_position[0], map_info->road);
+	put_image(map_info, new_x, new_y, map_info->enemy[(new_x + new_y) % 2]);
 	enemy_position[1] = new_x;
 	enemy_position[0] = new_y;
-	usleep(500000);
 	return (1);
 }
 
@@ -103,7 +104,6 @@ void	move_enemy(t_game *map_info)
 		direction = get_random_direction();
 		if (!move_enemy_in_direction(map_info, direction, enemy_position))
 			return ;
-		move_enemy(map_info);
 	}
 	return ;
 }
