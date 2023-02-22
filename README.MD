@@ -7,7 +7,7 @@
 ### Circle Two
 - push_swap
 - minitalk or pipex
-- so_long or FdF or fract-ol
+- [so_long][so_long] or FdF or fract-ol
 
 ### Circle Three
 - minishell
@@ -29,3 +29,4 @@
 [born2beroot]: https://github.com/democracyKim/42Seoul/tree/master/born2beRoot
 [printf]: https://github.com/democracyKim/42Seoul/tree/master/printf
 [gnl]: https://github.com/democracyKim/42Seoul/tree/master/get_next_line
+[so_long]: https://github.com/democracyKim/42Seoul/tree/master/so_long
