@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 13:42:06 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 10:17:12 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	move_possible(t_game *map_info, int new_x, int new_y)
 	if (new_location == '1')
 		return (-1);
 	if (new_location == 'C')
-		map_info->collect_exit_player[0]--;
+		map_info->num_cepm[0]--;
 	else if (new_location == 'M')
 	{
 		print_messages("bye bye dino...\n");
@@ -28,7 +28,7 @@ static int	move_possible(t_game *map_info, int new_x, int new_y)
 	}
 	else if (new_location == 'E')
 	{
-		if (map_info->collect_exit_player[0] != 0)
+		if (map_info->num_cepm[0] != 0)
 			return (-1);
 		print_messages("Congratulations! Mission complete :D\n");
 		finish_game(map_info);

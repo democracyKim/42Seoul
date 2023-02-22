@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:43 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 14:03:25 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 10:16:55 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	check_route(t_game *map_info, int player_pos[2])
 	map_duplicate(map_info->map, map_info->height, map_info->width, &map_dup);
 	exit += dfs(map_dup, 'E', player_pos[1], player_pos[0]);
 	free_array(map_dup, map_info->height);
-	if (collect != map_info->collect_exit_player[0] || exit != 1)
+	if (collect != map_info->num_cepm[0] || exit != 1)
 		return (ERROR);
 	return (0);
 }

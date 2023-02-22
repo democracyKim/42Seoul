@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:15:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 14:08:57 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 10:20:33 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct game_type
 	char	**map;
 	int		width;
 	int		height;
-	int		collect_exit_player[3];
+	int		num_cepm[4];
 	int		player_position[2];
 	void	*mlx;
 	void	*dino_advanture;
