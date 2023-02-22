@@ -6,7 +6,7 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:37:57 by minkim3           #+#    #+#              #
-#    Updated: 2023/02/14 13:27:40 by minkim3          ###   ########.fr        #
+#    Updated: 2023/02/22 17:33:09 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,44 @@ CFLAGS 		= -Wall -Wextra -Werror
 AR          = ar -rcs
 RM          = rm -f
 INCS        = libft.h
-SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c\
-		ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c\
-		ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c\
-		ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c\
-		ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c\
-		ft_putendl_fd.c ft_putnbr_fd.c ft_new_string.c ft_itoa_extension.c\
-		get_next_line.c get_next_line_utils.c
+SRCS = ./allocate_new_memory/ft_calloc.c \
+		./allocate_new_memory/ft_strdup.c \
+		./atoi_itoa/ft_atoi.c \
+		./atoi_itoa/ft_itoa.c \
+		./atoi_itoa/ft_itoa_extension.c \
+		./change_value_pointed_by_memory/ft_memset.c \
+		./change_value_pointed_by_memory/ft_bzero.c \
+		./change_value_pointed_by_memory/ft_memcpy.c \
+		./change_value_pointed_by_memory/ft_memmove.c \
+		./change_value_pointed_by_memory/ft_strlcpy.c \
+		./change_value_pointed_by_memory/ft_strlcat.c \
+		./check_or_change_character/ft_isalpha.c \
+		./check_or_change_character/ft_isdigit.c \
+		./check_or_change_character/ft_isalnum.c \
+		./check_or_change_character/ft_isascii.c \
+		./check_or_change_character/ft_isprint.c \
+		./check_or_change_character/ft_toupper.c \
+		./check_or_change_character/ft_tolower.c \
+		./function_pointer/ft_striteri.c \
+		./function_pointer/ft_strmapi.c \
+		./get_next_line/get_next_line.c \
+		./get_next_line/get_next_line_utils.c \
+		./string/ft_strlen.c \
+		./string/ft_split.c \
+		./string/ft_strjoin.c \
+		./string/ft_substr.c \
+		./string/ft_strtrim.c \
+		./compare_or_find_something_in_string/ft_memchr.c \
+		./compare_or_find_something_in_string/ft_memcmp.c \
+		./compare_or_find_something_in_string/ft_strchr.c \
+		./compare_or_find_something_in_string/ft_strrchr.c \
+		./compare_or_find_something_in_string/ft_strncmp.c \
+		./compare_or_find_something_in_string/ft_strnstr.c \
+		./write/ft_putchar_fd.c \
+		./write/ft_putstr_fd.c \
+		./write/ft_putendl_fd.c \
+		./write/ft_putnbr_fd.c \
+
 SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c\
 		ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c\
 		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
