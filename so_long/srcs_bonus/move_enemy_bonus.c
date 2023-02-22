@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 11:09:19 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 13:12:53 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static int	find_enemy(t_game *map_info, int start_x, \
+static int	find_enemy(t_game *game, int start_x, \
 	int start_y, int enemy_position[2])
 {
 	int	y;
@@ -20,13 +20,13 @@ static int	find_enemy(t_game *map_info, int start_x, \
 
 	y = start_y;
 	x = start_x;
-	while (y < map_info->height)
+	while (y < game->height)
 	{
 		if (y != start_y)
 			x = 0;
-		while (x < map_info->width)
+		while (x < game->width)
 		{
-			if (map_info->map[y][x] == 'M')
+			if (game->map[y][x] == 'M')
 			{
 				enemy_position[0] = y;
 				enemy_position[1] = x;
@@ -35,22 +35,23 @@ static int	find_enemy(t_game *map_info, int start_x, \
 			x++;
 		}
 		y++;
+		x = 0;
 	}
 	return (-1);
 }
 
-static int	is_valid_move(t_game *map_info, int new_x, int new_y)
+static int	is_valid_move(t_game *game, int new_x, int new_y)
 {
 	char	new_location;
 
-	new_location = map_info->map[new_y][new_x];
+	new_location = game->map[new_y][new_x];
 	if (new_location == '1' || new_location == 'M' || \
 		new_location == 'E' || new_location == 'C')
 		return (0);
 	if (new_location == 'P')
 	{
 		print_messages("bye bye dino...\n");
-		finish_game(map_info);
+		finish_game(game);
 	}
 	return (1);
 }
@@ -60,8 +61,8 @@ static int	get_random_direction(void)
 	return (rand() % 4);
 }
 
-static int	move_enemy_in_direction(t_game *map_info, \
-	int direction, int enemy_position[2])
+static int	move_enemy_in_direction(t_game *game, \
+	int direction, int *enemy_position)
 {
 	int	new_x;
 	int	new_y;
@@ -76,34 +77,40 @@ static int	move_enemy_in_direction(t_game *map_info, \
 		new_y++;
 	else
 		new_x--;
-	if (!is_valid_move(map_info, new_x, new_y))
+	if (!is_valid_move(game, new_x, new_y))
 		return (0);
-	map_info->map[new_y][new_x] = 'M';
-	map_info->map[enemy_position[0]][enemy_position[1]] = '0';
-	put_image(map_info, enemy_position[1], enemy_position[0], map_info->road);
-	put_image(map_info, new_x, new_y, map_info->enemy[(new_x + new_y) % 2]);
+	game->map[new_y][new_x] = 'M';
+	game->map[enemy_position[0]][enemy_position[1]] = '0';
+	put_image(game, enemy_position[1], enemy_position[0], game->road);
+	put_image(game, new_x, new_y, game->enemy[(new_x + new_y) % 2]);
 	enemy_position[1] = new_x;
 	enemy_position[0] = new_y;
 	return (1);
 }
 
-void	move_enemy(t_game *map_info)
+void	move_enemy(t_game *game)
 {
 	static int	enemy_move_counter;
 	int			enemy_position[2];
 	int			direction;
+	int			num_enemy;
 
+	num_enemy = game->num_cepm[3];
 	ft_memset(enemy_position, 0, sizeof(enemy_position));
-	if (find_enemy(map_info, enemy_position[1], \
-		enemy_position[0], enemy_position) == 1)
+	enemy_move_counter++;
+	if (enemy_move_counter < MOVE_THRESHOLD)
+		return ;
+	enemy_move_counter = 0;
+	while (num_enemy)
 	{
-		enemy_move_counter++;
-		if (enemy_move_counter < MOVE_THRESHOLD)
+		if (find_enemy(game, enemy_position[1], \
+			enemy_position[0], enemy_position) == -1)
 			return ;
-		enemy_move_counter = 0;
 		direction = get_random_direction();
-		if (!move_enemy_in_direction(map_info, direction, enemy_position))
-			return ;
+		if (!move_enemy_in_direction(game, direction, &enemy_position[0]))
+			continue ;
+		num_enemy--;
+		enemy_position[1]++;
 	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:15:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 11:13:50 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 13:13:36 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,6 @@
 # include <fcntl.h>
 
 # define MOVE_THRESHOLD 50
-
-enum e_definition
-{
-	ERROR = -1,
-	KEY_LEFT = 0,
-	KEY_RIGHT = 2,
-	KEY_DOWN = 1,
-	KEY_UP = 13,
-	KEY_ESC = 53,
-};
 
 typedef struct game_type
 {

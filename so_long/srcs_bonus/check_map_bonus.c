@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:39 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 10:19:30 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 13:12:42 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	count_component(char component, t_game *map_info)
 	return (1);
 }
 
-static int	check_component(t_game *map_info)
+int	check_component(t_game *map_info)
 {
 	int	y;
 	int	x;
