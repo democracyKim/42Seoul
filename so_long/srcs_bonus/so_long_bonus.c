@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/21 23:04:22 by minjukim         ###   ########.fr       */
+/*   Updated: 2023/02/22 09:56:04 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	so_long(char *map_file)
 	t_game	*map_info;
 
 	map_info = malloc(sizeof(t_game));
+	ft_memset(map_info, 0, sizeof(t_game));
 	if (map_init(map_info, map_file) == ERROR)
 		exit(0);
 	if (check_map(map_info) == ERROR)

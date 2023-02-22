@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:39 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 13:43:43 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/22 09:58:23 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,28 @@ static int	is_surrounded_by_wall(char **map, int height, int width)
 	return (0);
 }
 
+static int	check_forbidden_component(char component)
+{
+	if (component == 'P' || component == 'C' || \
+		component == 'E' || component == 'M' || \
+		component == '0' || component == '1')
+		return (1);
+	return (ERROR);
+}
+
 static int	check_component(t_game *map_info)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	ft_memset(map_info->collect_exit_player, 0, \
-		sizeof(map_info->collect_exit_player));
 	while (++i < map_info->height)
 	{
 		j = -1;
 		while (++j < map_info->width)
 		{
+			if (check_forbidden_component(map_info->map[i][j]) == ERROR)
+				return (ERROR);
 			if (map_info->map[i][j] == 'C')
 				map_info->collect_exit_player[0]++;
 			else if (map_info->map[i][j] == 'E')
@@ -89,8 +98,6 @@ static int	check_component(t_game *map_info)
 
 int	check_map(t_game *map_info)
 {
-	ft_memset(map_info->player_position, 0, \
-	sizeof(map_info->player_position));
 	if (check_component(map_info) == ERROR)
 	{
 		print_error("map error\n");
