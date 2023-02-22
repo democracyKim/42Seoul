@@ -1,7 +1,3 @@
-memchr
-The memchr() function locates the first occurrence of c (converted to an unsigned char) in string s
-The memcmp() function compares byte string s1 against byte string s2.  Both strings are assumed to be n bytes long.
-
 # String 
 ## no need to free() after use
 ### memset
