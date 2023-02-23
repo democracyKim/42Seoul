@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:15:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/23 11:06:06 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 11:12:47 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../mlx/mlx.h"
 # include <fcntl.h>
 
-# define MOVE_THRESHOLD 5
+# define MOVE_THRESHOLD 10
 
 enum e_definition
 {
