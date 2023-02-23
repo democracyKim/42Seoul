@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:12:59 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/23 13:03:42 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:13:55 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ static void	copy_map(char (*tmp)[1000], t_game *map_info)
 	int	i;
 
 	map_info->map = malloc(sizeof(char *) * map_info->height);
+	if (map_info->map == NULL)
+		exit(0);
 	i = 0;
 	while (i < map_info->height)
 	{
 		map_info->map[i] = malloc(sizeof(char) * map_info->width);
+		if (map_info->map[i] == NULL)
+			exit(0);
 		ft_memcpy(map_info->map[i], tmp[i], map_info->width);
 		i++;
 	}

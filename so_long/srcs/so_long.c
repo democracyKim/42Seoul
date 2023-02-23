@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/23 09:29:09 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:12:20 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	so_long(char *map_file)
 	t_game	*map_info;
 
 	map_info = malloc(sizeof(t_game));
+	if (!map_info)
+		return ;
 	ft_memset(map_info, 0, sizeof(t_game));
 	if (map_init(map_info, map_file) == ERROR)
 		exit(0);
