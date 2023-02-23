@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:16:53 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/23 12:50:51 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 12:59:19 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int print_arg_error(void)
 {
-	print_error("arg error\n");
+	error_exit("arg error\n");
 	return (ERROR);
 }
 

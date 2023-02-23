@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:15:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/23 11:12:47 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 12:59:19 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		check_route(t_game *map_info, int player_pos[2]);
 void	open_image(t_game *image);
 int		display_footprint(t_game *map_info);
 void	display_map(t_game *map_info);
-void	print_error(char *msg);
+void	error_exit(char *msg);
 void	print_messages(char *msg);
 int		move_player(int keycode, void *param);
 void	move_enemy(t_game *map_info);

@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:39 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/23 11:05:49 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:04:00 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,21 +80,12 @@ int	check_component(t_game *map_info)
 int	check_map(t_game *map_info)
 {
 	if (check_component(map_info) == ERROR)
-	{
-		print_error("map error\n");
-		return (ERROR);
-	}
+		error_exit("map error\n");
 	if (is_surrounded_by_wall(map_info->map, map_info->height, \
 			map_info->width) == ERROR)
-	{
-		print_error("map error\n");
-		return (ERROR);
-	}
+		error_exit("map error\n");
 	if (check_route(map_info, map_info->player_position) == ERROR)
-	{
-		print_error("map error\n");
-		return (ERROR);
-	}
+		error_exit("map error\n");
 	return (0);
 }
 

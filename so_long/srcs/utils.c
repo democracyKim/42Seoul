@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 15:41:45 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:03:21 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_error(char *msg)
+void	error_exit(char *msg)
 {
 	int	len;
 
@@ -20,6 +20,7 @@ void	print_error(char *msg)
 	while (msg[len])
 		len++;
 	write(2, msg, len);
+	exit(0);
 }
 
 void	print_messages(char *msg)

@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:12:59 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 10:18:54 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:03:42 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,9 @@ int	map_init(t_game *map_info, char *map_file)
 	char	tmp[1000][1000];
 
 	if (open_map(tmp, map_info, map_file) == ERROR)
-	{
-		print_error("open error\n");
-		return (ERROR);
-	}
+		error_exit("open error\n");
 	if (check_rectangular(tmp, map_info) == ERROR)
-	{
-		print_error("check_rectangular_error\n");
-		return (ERROR);
-	}
+		error_exit("check_rectangular_error\n");
 	copy_map(tmp, map_info);
 	return (1);
 }
