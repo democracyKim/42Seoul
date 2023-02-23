@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:15:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 13:13:32 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 11:06:06 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../mlx/mlx.h"
 # include <fcntl.h>
 
-# define MOVE_THRESHOLD 50
+# define MOVE_THRESHOLD 5
 
 enum e_definition
 {
@@ -66,5 +66,6 @@ void	free_array(char **array, int size);
 void	finish_game(t_game *map_info);
 void	load_dino_sprites(t_game *map_info, int x, int y);
 void	put_image(t_game *map_info, int x, int y, void *img);
-
+int		find_enemy(t_game *game, int start_x, \
+			int start_y, int enemy_position[2]);
 #endif

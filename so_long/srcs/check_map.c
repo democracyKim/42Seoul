@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:39 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 12:50:24 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 11:05:49 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,32 @@ int	check_map(t_game *map_info)
 		return (ERROR);
 	}
 	return (0);
+}
+
+int	find_enemy(t_game *game, int start_x, \
+	int start_y, int enemy_position[2])
+{
+	int	y;
+	int	x;
+
+	y = start_y;
+	x = start_x;
+	while (y < game->height)
+	{
+		if (y != start_y)
+			x = 0;
+		while (x < game->width)
+		{
+			if (game->map[y][x] == 'M')
+			{
+				enemy_position[0] = y;
+				enemy_position[1] = x;
+				return (1);
+			}
+			x++;
+		}
+		y++;
+		x = 0;
+	}
+	return (-1);
 }
