@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:45 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 10:48:10 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 09:28:13 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	display_map_tiles(t_game *map_info, int x, int y)
 		put_image(map_info, x, y, map_info->enemy[(x + y) % 2]);
 	else if (map_info->map[y][x] == 'M')
 		put_image(map_info, x, y, map_info->enemy[(x + y) % 2]);
+	else if (map_info->map[y][x] == 'P')
+		put_image(map_info, x, y, map_info->dino_right[0]);
 }
 
 void	display_map(t_game *map_info)

@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 13:10:06 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 09:25:03 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ static int	move_enemy_in_direction(t_game *game, \
 		new_x++;
 	else if (direction == 2)
 		new_y++;
-	else
+	else if (direction == 3)
 		new_x--;
+	else
+		return (0);
 	if (!is_valid_move(game, new_x, new_y))
 		return (0);
 	game->map[new_y][new_x] = 'M';
