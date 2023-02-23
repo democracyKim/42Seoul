@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:16:53 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/23 11:10:19 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 12:50:51 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	validate_arg(int ac, char **av)
 	if (start[4] != '\0')
 		return (print_arg_error());
 	slash = ft_strrchr(av[1], '/');
+	if (slash == NULL)
+		return (1);
 	while (++slash != start)
 	{
 		if (*slash == '.')
