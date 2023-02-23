@@ -3,9 +3,9 @@ NAME = so_long.a
 SOURCES = ./srcs/map_init.c ./srcs/so_long.c ./srcs/check_map.c \
 			./srcs/utils.c ./srcs/check_route.c ./srcs/open_image.c \
 			./srcs/display_image.c ./srcs/move_player.c ./srcs/move_enemy.c
-B_SOURCES = ./srcs_bonus/map_init_bonus.c ./srcs_bonus/so_long_bonus.c ./srcs_bonus/check_map_bonus.c \
-			./srcs_bonus/utils_bonus.c ./srcs_bonus/check_route_bonus.c ./srcs_bonus/open_image_bonus.c \
-			./srcs_bonus/display_image_bonus.c ./srcs_bonus/move_player_bonus.c ./srcs_bonus/move_enemy_bonus.c
+# B_SOURCES = ./srcs_bonus/map_init_bonus.c ./srcs_bonus/so_long_bonus.c ./srcs_bonus/check_map_bonus.c \
+# 			./srcs_bonus/utils_bonus.c ./srcs_bonus/check_route_bonus.c ./srcs_bonus/open_image_bonus.c \
+# 			./srcs_bonus/display_image_bonus.c ./srcs_bonus/move_player_bonus.c ./srcs_bonus/move_enemy_bonus.c
 
 OBJECT = $(SOURCES:.c=.o)
 B_OBJECT = $(B_SOURCES:.c=.o)

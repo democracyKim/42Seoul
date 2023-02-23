@@ -6,12 +6,11 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:16:53 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/22 12:25:23 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 11:10:19 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./srcs/so_long.h"
-// #include "./srcs_bonus/so_long_bonus.h"
 
 static int print_arg_error(void)
 {
