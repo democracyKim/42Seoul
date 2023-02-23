@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:14:52 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/20 15:46:01 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:07:11 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 static void	*xpm_to_image(t_game *image, char *address)
 {
-	int	width;
-	int	height;
+	int		width;
+	int		height;
+	void	*put_image;
 
-	return (mlx_xpm_file_to_image(image->mlx, address, &width, &height));
+	put_image = mlx_xpm_file_to_image(image->mlx, address, &width, &height);
+	if (put_image == NULL)
+		error_exit("error : cannot open_image\n");
+	return (put_image);
 }
 
 static void	open_dino_right(t_game *image)
