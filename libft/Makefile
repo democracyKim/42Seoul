@@ -6,7 +6,7 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:37:57 by minkim3           #+#    #+#              #
-#    Updated: 2023/02/28 09:36:05 by minkim3          ###   ########.fr        #
+#    Updated: 2023/02/28 14:02:57 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,10 @@ CC 			= cc
 CFLAGS 		= -Wall -Wextra -Werror
 AR          = ar -rcs
 RM          = rm -f
-INCS        = libft.h
+HEADER        = libft.h
 SRCS = allocate_new_memory/ft_calloc.c \
 		allocate_new_memory/ft_strdup.c \
+		allocate_new_memory/ft_new_string.c \
 		atoi_itoa/ft_atoi.c \
 		atoi_itoa/ft_itoa.c \
 		atoi_itoa/ft_itoa_extension.c \
@@ -90,7 +91,7 @@ $(NAME): $(OBJECTS)
 bonus:
 	make WITH_BONUS=1 all
 
-%.o: %.c $(INCS)
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:      
