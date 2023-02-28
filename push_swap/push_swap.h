@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/28 13:28:25 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/28 18:58:09 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int				is_stack_sorted(t_stack *stack);
 void			destroy_stacks_and_exit(t_stack *stack_a, \
 				t_stack *stack_b, int exit_status);
 void			display_stack(t_stack *list);
+void			error_exit(char *message, t_stack *stack_a, t_stack *stack_b);
 
 #endif

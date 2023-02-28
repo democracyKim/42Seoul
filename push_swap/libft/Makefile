@@ -6,7 +6,7 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:37:57 by minkim3           #+#    #+#              #
-#    Updated: 2023/02/28 14:25:08 by minkim3          ###   ########.fr        #
+#    Updated: 2023/02/28 19:00:17 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ SRCS = allocate_new_memory/ft_calloc.c\
 		write/ft_helper.c\
 		write/ft_malloc_error.c\
 		write/ft_minus_and_print.c\
-		write/ft_printf.c
+		write/ft_printf.c\
+		write/error_return.c
 
 SRCS_BONUS = linked_list/ft_lstnew_bonus.c\
 			linked_list/ft_lstadd_front_bonus.c\

@@ -6,20 +6,23 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:43:17 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/28 15:00:58 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:08:37 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	check_duplicate(int data, int *array, int sign)
+static int	check_duplicate(t_stack *stack, int data)
 {
-	if (array[data * sign] != 0)
+	t_stack_node	*tmp;
+
+	tmp = stack->headnode;
+	while (tmp)
 	{
-		ft_printf("duplicate error\n");
-		return (-1);
+		if (tmp->data == data)
+			return (error_return("Error: Duplicate value found.\n", -1));
+		tmp = tmp->next;
 	}
-	array[data * sign] = sign;
 	return (0);
 }
 
@@ -33,7 +36,7 @@ static int	is_number(char *string)
 	while (string[i])
 	{
 		if (!ft_isdigit(string[i]))
-			return (-1);
+			return (error_return("Error: Non-digit character found.\n", -1));
 		i++;
 	}
 	return (0);
@@ -50,22 +53,20 @@ static int	valid_args(char *av, t_stack *stack_a)
 {
 	long long	data;
 	int			sign;
-	static int	array[INT_MAX] = {0};
 
 	sign = 1;
-	if (av != NULL)
-	{
-		if (is_number(av) == -1)
-			return (-1);
-		data = ft_atoi_extension(av);
-		if (is_int(data) == -1)
-			return (-1);
-		if (data < 0)
-			sign = -1;
-		if (check_duplicate(data, array, sign) == -1)
-			return (-1);
-		push(stack_a, (int)data);
-	}
+	if (av == NULL)
+		return (error_return("Error: NULL argument.\n", -1));
+	if (is_number(av) == -1)
+		return (-1);
+	data = ft_atoi_extension(av);
+	if (is_int(data) == -1)
+		return (error_return("Error: Integer value out of range.\n", -1));
+	if (data < 0)
+		sign = -1;
+	if (check_duplicate(stack_a, (int)data) == -1)
+		return (-1);
+	push(stack_a, (int)data);
 	return (0);
 }
 
@@ -78,7 +79,6 @@ int	fill_stack(t_stack *stack_a, int argc, char **argv)
 	{
 		if (valid_args(argv[i], stack_a) == -1)
 		{
-			ft_putendl_fd("Error", 2);
 			destroy_stack(&stack_a);
 			return (-1);
 		}
