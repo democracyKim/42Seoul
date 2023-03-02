@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:43:17 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 14:42:03 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/02 22:24:07 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static int	valid_args(char *av, t_stack *stack_a)
 	int			sign;
 
 	sign = 1;
+	(void)sign;
 	if (av == NULL)
 		return (error_return("Error: NULL argument.\n", -1));
 	if (is_number(av) == -1)

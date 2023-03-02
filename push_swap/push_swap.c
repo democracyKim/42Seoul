@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 14:34:10 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/02 22:19:15 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,35 @@ void sort_three_number(t_stack *stack_a)
 		sa(stack_a);
 		ra(stack_a);
 	}
+}
+
+void sort_three_number_b(t_stack *stack_b)
+{
+	int a;
+	int b;
+	int c;
+
+	a = stack_b->top->data;
+	b = stack_b->top->prev->data;
+	c = stack_b->top->prev->prev->data;
+	if (a > b && b < c && a < c)
+		rrb(stack_b);
+	else if (a < b && b > c && a > c)
+		sb(stack_b);
+	else if (a > b && b < c && a > c)
+	{
+		rrb(stack_b);
+		sb(stack_b);
+	}
+	else if (a < b && b < c && a < c)
+	{
+		sb(stack_b);
+		rrb(stack_b);
+	}
+	else if (a < b && b > c && a < c)
+		rb(stack_b);
+	else
+		return ;
 }
 
 void push_swap(t_stack *stack_a, t_stack *stack_b)

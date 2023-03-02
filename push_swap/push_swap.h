@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 14:43:21 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/02 22:24:34 by minjukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ size_t			stack_size(t_stack *stack);
 void			sort_three_number(t_stack *stack_a);
 void			merge_sort(t_stack *stack_a, t_stack *stack_b);
 int				get_median(t_stack *stack);
+void			sort_three_number_b(t_stack *stack_b);
+
 
 
 
