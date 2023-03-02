@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 10:10:45 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 12:20:38 by minkim3          ###   ########.fr       */
+/*   Created: 2023/03/02 11:12:10 by minkim3           #+#    #+#             */
+/*   Updated: 2023/03/02 14:43:08 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	push_to(t_stack *from, t_stack *to)
+int stack_top(t_stack *stack)
 {
-	int	data;
-
-	if (from->top)
-	{
-		data = pop(from);
-		push(to, data);
-	}
+    if (stack == NULL || stack->top == NULL)
+        return (-1);
+    return (stack->top->data);
 }
 
-void	pa(t_stack *stack_a, t_stack *stack_b)
+int stack_bottom(t_stack *stack)
 {
-	push_to(stack_b, stack_a);
-	ft_printf("pa\n");
+    if (stack == NULL || stack->top == NULL)
+        return (-1);
+    return (stack->head->data);
 }
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+int is_stack_empty(t_stack *stack)
 {
-	push_to(stack_a, stack_b);
-	ft_printf("pb\n");
+    return (stack == NULL || stack->top == NULL);
 }
+

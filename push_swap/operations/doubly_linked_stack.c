@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:58:11 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/01 11:24:50 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/02 14:42:22 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,67 +34,58 @@ t_stack_node	*create_new_node(int data)
 	return (new_node);
 }
 
-int	push(t_stack *list, int data)
+int	push(t_stack *stack, int data)
 {
 	t_stack_node	*new_node;
 
-	if (list == NULL)
+	if (stack == NULL)
 		return (-1);
 	new_node = create_new_node(data);
-	if (list->headnode == NULL)
-		list->headnode = new_node;
+	if (stack->head == NULL)
+		stack->head = new_node;
 	else
 	{
-		list->top->next = new_node;
-		new_node->prev = list->top;
+		stack->top->next = new_node;
+		new_node->prev = stack->top;
 	}
-	list->top = new_node;
-	list->size++;
+	stack->top = new_node;
+	stack->size++;
+	if (data < stack->min)
+		stack->min = data;
 	return (0);
 }
 
-int	pop(t_stack *list)
+static int find_min(t_stack_node *head)
+{
+	int min = INT_MAX;
+	while (head != NULL)
+	{
+		if (head->data < min)
+			min = head->data;
+		head = head->next;
+	}
+	return (min);
+}
+
+int	pop(t_stack *stack)
 {
 	int				data;
 	t_stack_node	*del_node;
 
-	if (list == NULL || list->top == NULL)
+	if (!stack || !stack->top)
 		return (-1);
-	data = list->top->data;
-	del_node = list->top;
-	if (list->top->prev == NULL)
-	{
-		list->top = NULL;
-		list->headnode = NULL;
-	}
+	data = stack->top->data;
+	del_node = stack->top;
+	stack->top = stack->top->prev;
+	if (stack->top)
+		stack->top->next = NULL;
 	else
-	{
-		list->top = list->top->prev;
-		list->top->next = NULL;
-		del_node->prev = NULL;
-	}
+		stack->head = NULL;
 	free(del_node);
-	del_node = NULL;
-	list->size--;
+	stack->size--;
+	if (stack->size == 0)
+		stack->min = INT_MAX;
+	else if (data == stack->min)
+		stack->min = find_min(stack->head);
 	return (data);
-}
-
-void	destroy_stack(t_stack **list)
-{
-	t_stack_node	*dummy;
-	t_stack_node	*remove;
-
-	if (!*list)
-		return ;
-	dummy = (*list)->headnode;
-	while (dummy != NULL)
-	{
-		remove = dummy;
-		dummy = dummy->next;
-		free(remove);
-		remove = NULL;
-	}
-	free(*list);
-	*list = NULL;
-	ft_printf("destroy complete\n");
 }
