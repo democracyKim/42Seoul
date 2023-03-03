@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 13:43:36 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 14:07:42 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,23 @@ void merge_stacks(t_stack *stack_a, t_stack *stack_b)
     while (!is_stack_empty(stack_b))
     {
         if (is_stack_empty(stack_a) || stack_top(stack_b) < stack_top(stack_a))
-		{
             pa(stack_a, stack_b);
-		}
 		else
             ra(stack_a);
     }
 }
 
-static int flag_ba(t_stack *stack_a, t_stack *stack_b)
+static int flag_ba(t_stack *stack_a, t_stack *stack_b, int depth)
 {
 	int pivot;
+	int max_depth;
 
-    if (stack_size(stack_a) <= 1 || is_stack_sorted(stack_a))
+	max_depth = stack_a->max_depth;
+    if (stack_size(stack_a) <= 1 || is_stack_sorted_b(stack_a) || depth == max_depth)
         return (-1);
     else if (stack_size(stack_a) == 2)
     {
-        if (stack_top(stack_a) < stack_a->top->prev->data)
-            sa(stack_a);
+		sa(stack_a);
         return (-1);
     }
     else if (stack_size(stack_a) == 3)
@@ -73,16 +72,17 @@ static int flag_ba(t_stack *stack_a, t_stack *stack_b)
 	return (0);
 }
 
-static int flag_ab(t_stack *stack_a, t_stack *stack_b)
+static int flag_ab(t_stack *stack_a, t_stack *stack_b, int depth)
 {
 	int pivot;
+	int max_depth;
 
-    if (stack_size(stack_a) <= 1 || is_stack_sorted(stack_a))
+	max_depth = stack_a->max_depth;
+    if (stack_size(stack_a) <= 1 || is_stack_sorted(stack_a) || depth == max_depth)
         return (-1);
     else if (stack_size(stack_a) == 2)
     {
-        if (stack_top(stack_a) > stack_a->top->prev->data)
-            sa(stack_a);
+        sa(stack_a);
         return (-1);
     }
     else if (stack_size(stack_a) == 3)
@@ -95,26 +95,26 @@ static int flag_ab(t_stack *stack_a, t_stack *stack_b)
 	return (0);
 }
 
-void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag)
+void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag, int depth)
 {
 	int result;
 
 	if (flag == AB)
-		result = flag_ab(stack_a, stack_b);
+		result = flag_ab(stack_a, stack_b, depth);
 	else
-		result = flag_ba(stack_a, stack_b);
+		result = flag_ba(stack_a, stack_b, depth);
 	if (result == -1)
 		return ;
 	display_two_stack(stack_a, stack_b);
 	
 	ft_printf("============ merge_sort--> AB, start\n");
-    merge_sort(stack_a, stack_b, flag);
+    merge_sort(stack_a, stack_b, flag, depth + 1);
 	
 	ft_printf("============ merge_sort--> BA, start\n");
-	flag = BA;
-    merge_sort(stack_b, stack_a, flag);
+	flag *= -1;
+    merge_sort(stack_b, stack_a, flag, depth + 1);
 
 	ft_printf("============ merge_stacks, start\n");
-    merge_stacks(stack_a, stack_b);
+	merge_stacks(stack_a, stack_b);
 	display_two_stack(stack_a, stack_b);
 }

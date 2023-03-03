@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 09:38:22 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 13:59:21 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct list {
 	t_stack_node	*head;
 	size_t			size;
 	int				min;
+	int				max_depth;
 }	t_stack;
 
 t_stack			*create_stack(void);
@@ -63,9 +64,10 @@ void			error_exit(char *message, t_stack *stack_a, t_stack *stack_b);
 void			push_swap(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
 void			sort_three_number(t_stack *stack_a);
-void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag);
+void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag, int depth);
 int				get_median(t_stack *stack);
 void			sort_three_number_b(t_stack *stack_b);
+int				is_stack_sorted_b(t_stack *stack);
 
 
 

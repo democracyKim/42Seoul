@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:32:21 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 14:42:03 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 13:47:02 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,26 @@ int is_stack_sorted(t_stack *stack)
 	while (below != NULL)
 	{
 		if (below->data < data)
+			return (0);
+		data = below->data;
+		below = below->prev;
+	}
+	ft_printf("Finish: stack is already sorted\n");
+	return (1);
+}
+
+int is_stack_sorted_b(t_stack *stack)
+{
+	t_stack_node	*below;
+	int				data;
+
+	if (stack == NULL || stack->head == NULL)
+		return (1);
+	data = stack->top->data;
+	below = stack->top->prev;
+	while (below != NULL)
+	{
+		if (below->data > data)
 			return (0);
 		data = below->data;
 		below = below->prev;
