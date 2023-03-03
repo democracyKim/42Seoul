@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 15:04:00 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 15:07:32 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,10 @@ void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag, int depth)
 		return ;
 	display_two_stack(stack_a, stack_b);
 	
-	ft_printf("============ merge_sort--> AB, start\n");
+	ft_printf("============ merge_sort--> AB,  start\n");
     merge_sort(stack_a, stack_b, flag, depth + 1);
 
-	ft_printf("============ merge_sort--> BA, start\n");
+	ft_printf("============ merge_sort--> BA,  start\n");
 	flag *= -1;
     merge_sort(stack_b, stack_a, flag, depth + 1);
 }
