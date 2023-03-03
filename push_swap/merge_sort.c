@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 14:07:42 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 14:48:54 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static void split_stack_b(t_stack *stack_a, t_stack *stack_b, int pivot)
 	int size = stack_size(stack_a);
 	while (size > 0)
 	{
-		if (stack_top(stack_a) > pivot)
-			pa(stack_a, stack_b);
+		if (stack_top(stack_a) >= pivot)
+			pb(stack_a, stack_b);
 		else
-			rb(stack_a);
+			rra(stack_a);
 		size--;
 	}
 }
@@ -42,10 +42,7 @@ void merge_stacks(t_stack *stack_a, t_stack *stack_b)
 {
     while (!is_stack_empty(stack_b))
     {
-        if (is_stack_empty(stack_a) || stack_top(stack_b) < stack_top(stack_a))
-            pa(stack_a, stack_b);
-		else
-            ra(stack_a);
+        pa(stack_a, stack_b);
     }
 }
 
@@ -90,7 +87,17 @@ static int flag_ab(t_stack *stack_a, t_stack *stack_b, int depth)
         sort_three_number(stack_a);
         return (-1);
     }
+	if (stack_size(stack_b) == 2)
+	{
+		if (stack_b->top->data < stack_b->top->prev->data)
+			sb(stack_b);
+	}
+    else if (stack_size(stack_b) == 3)
+    {
+        sort_three_number_b(stack_b);
+    }
     pivot = get_median(stack_a);
+	ft_printf("pivot = %d\n", pivot);
     split_stack(stack_a, stack_b, pivot);
 	return (0);
 }
@@ -109,7 +116,7 @@ void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag, int depth)
 	
 	ft_printf("============ merge_sort--> AB, start\n");
     merge_sort(stack_a, stack_b, flag, depth + 1);
-	
+
 	ft_printf("============ merge_sort--> BA, start\n");
 	flag *= -1;
     merge_sort(stack_b, stack_a, flag, depth + 1);
