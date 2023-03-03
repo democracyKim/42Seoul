@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 14:48:54 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 15:04:00 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,6 @@ static void split_stack_b(t_stack *stack_a, t_stack *stack_b, int pivot)
 	}
 }
 
-void merge_stacks(t_stack *stack_a, t_stack *stack_b)
-{
-    while (!is_stack_empty(stack_b))
-    {
-        pa(stack_a, stack_b);
-    }
-}
-
 static int flag_ba(t_stack *stack_a, t_stack *stack_b, int depth)
 {
 	int pivot;
@@ -63,6 +55,15 @@ static int flag_ba(t_stack *stack_a, t_stack *stack_b, int depth)
     {
         sort_three_number_b(stack_a);
         return (-1);
+    }
+	if (stack_size(stack_b) == 2)
+	{
+		if (stack_b->top->data > stack_b->top->prev->data)
+			sb(stack_b);
+	}
+    else if (stack_size(stack_b) == 3)
+    {
+        sort_three_number(stack_b);
     }
     pivot = get_median(stack_a);
     split_stack_b(stack_a, stack_b, pivot);
@@ -120,8 +121,4 @@ void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag, int depth)
 	ft_printf("============ merge_sort--> BA, start\n");
 	flag *= -1;
     merge_sort(stack_b, stack_a, flag, depth + 1);
-
-	ft_printf("============ merge_stacks, start\n");
-	merge_stacks(stack_a, stack_b);
-	display_two_stack(stack_a, stack_b);
 }

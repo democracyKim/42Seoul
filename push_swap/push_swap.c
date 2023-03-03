@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 14:09:07 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 15:04:04 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,13 @@ int max_depth(t_stack *stack)
     }
     return (max_depth * 2);
 }
+void merge_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+    while (!is_stack_empty(stack_b))
+    {
+        pa(stack_a, stack_b);
+    }
+}
 
 void push_swap(t_stack *stack_a, t_stack *stack_b)
 {
@@ -99,5 +106,7 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 	stack_a->max_depth = max_depth(stack_a);
 	stack_b->max_depth = stack_a->max_depth;
 	merge_sort(stack_a, stack_b, AB, 0);
+	ft_printf("============ merge_stacks, start\n");
+	merge_stacks(stack_a, stack_b);
 	display_two_stack(stack_a, stack_b);
 }
