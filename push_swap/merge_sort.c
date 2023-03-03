@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 09:47:46 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 13:43:36 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int flag_ba(t_stack *stack_a, t_stack *stack_b)
 {
 	int pivot;
 
-    if (stack_size(stack_a) <= 1)
+    if (stack_size(stack_a) <= 1 || is_stack_sorted(stack_a))
         return (-1);
     else if (stack_size(stack_a) == 2)
     {
@@ -77,7 +77,7 @@ static int flag_ab(t_stack *stack_a, t_stack *stack_b)
 {
 	int pivot;
 
-    if (stack_size(stack_a) <= 1)
+    if (stack_size(stack_a) <= 1 || is_stack_sorted(stack_a))
         return (-1);
     else if (stack_size(stack_a) == 2)
     {
