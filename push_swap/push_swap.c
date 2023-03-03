@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 15:45:32 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 16:48:38 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,23 +103,9 @@ void merge_stacks(t_stack *stack_a, t_stack *stack_b)
 
 void push_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	size_t size;
-
-	size = stack_size(stack_a);
-	if (size <= 1 || is_stack_sorted(stack_a))
-		return ;
-	else if (size == 2)
-	{
-		sa(stack_a);
-		return ;
-	}
-	else if (size == 3)
-	{
-		sort_three_number(stack_a);
-		return ;
-	}
 	stack_a->max_depth = max_depth(stack_a);
 	stack_b->max_depth = stack_a->max_depth;
 	merge_sort(stack_a, stack_b, AB, 0);
+	ft_printf("<<<< ok >>>>\n");
 	merge_stacks(stack_a, stack_b);
 }
