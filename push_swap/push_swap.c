@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 22:19:15 by minjukim         ###   ########.fr       */
+/*   Updated: 2023/03/03 09:38:27 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ void sort_three_number_b(t_stack *stack_b)
 		return ;
 }
 
+int get_max_depth(int stack_size)
+{
+    if (stack_size <= 50)
+        return 11;
+    else if (stack_size <= 100)
+        return 22;
+    else if (stack_size <= 250)
+        return 33;
+    else
+        return 44;
+}
+
 void push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t size;
@@ -85,5 +97,5 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 		sort_three_number(stack_a);
 		return ;
 	}
-	merge_sort(stack_a, stack_b);
+	merge_sort(stack_a, stack_b, AB);
 }

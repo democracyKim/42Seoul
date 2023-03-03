@@ -3,16 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minjukim <minjukim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 22:24:34 by minjukim         ###   ########.fr       */
+/*   Updated: 2023/03/03 09:38:22 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft/libft.h"
+
+enum e_definition
+{
+	AB = 1,
+	BA = -1,
+};
 
 typedef struct t_stack_node {
 	int					data;
@@ -57,7 +63,7 @@ void			error_exit(char *message, t_stack *stack_a, t_stack *stack_b);
 void			push_swap(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
 void			sort_three_number(t_stack *stack_a);
-void			merge_sort(t_stack *stack_a, t_stack *stack_b);
+void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag);
 int				get_median(t_stack *stack);
 void			sort_three_number_b(t_stack *stack_b);
 
