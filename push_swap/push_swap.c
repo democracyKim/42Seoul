@@ -6,77 +6,25 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 16:48:38 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 14:47:55 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three_number(t_stack *stack_a)
-{
-	int a;
-	int b;
-	int c;
-
-	a = stack_a->top->data;
-	b = stack_a->top->prev->data;
-	c = stack_a->top->prev->prev->data;
-	if (a > b && b < c && a < c)
-		sa(stack_a);
-	else if (a < b && b > c && a > c)
-		rra(stack_a);
-	else if (a > b && b < c && a > c)
-		ra(stack_a);
-	else if (a > b && b > c && a > c)
-	{
-		sa(stack_a);
-		rra(stack_a);
-	}
-	else if (a < b && b > c && a < c)
-	{
-		sa(stack_a);
-		ra(stack_a);
-	}
-}
-
-void sort_three_number_b(t_stack *stack_b)
-{
-	int a;
-	int b;
-	int c;
-
-	a = stack_b->top->data;
-	b = stack_b->top->prev->data;
-	c = stack_b->top->prev->prev->data;
-	if (a > b && b < c && a < c)
-		rrb(stack_b);
-	else if (a < b && b > c && a > c)
-		sb(stack_b);
-	else if (a > b && b < c && a > c)
-	{
-		rrb(stack_b);
-		sb(stack_b);
-	}
-	else if (a < b && b < c && a < c)
-	{
-		sb(stack_b);
-		rrb(stack_b);
-	}
-	else if (a < b && b > c && a < c)
-		rb(stack_b);
-	else
-		return ;
-}
-
 int max_depth(t_stack *stack)
 {
-    int n = stack_size(stack);
-    int max_depth = 0;
-    while (n > 0) {
-        n >>= 1;
-        max_depth++;
+    int	n;
+	int	max_depth;
+	
+	n = stack_size(stack);
+	max_depth = 0;
+    while (n > 0)
+	{
+		n /= 3;
+		max_depth++;
     }
-    return (max_depth * 2);
+    return (max_depth);
 }
 
 void merge_stacks(t_stack *stack_a, t_stack *stack_b)

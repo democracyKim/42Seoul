@@ -6,7 +6,7 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 13:19:43 by minkim3           #+#    #+#              #
-#    Updated: 2023/03/02 15:12:23 by minkim3          ###   ########.fr        #
+#    Updated: 2023/03/06 14:42:36 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ SOURCES		= ./operations/doubly_linked_stack.c\
 			  push_swap.c\
 			  fill_stack.c\
 			  merge_sort.c\
-			  get_median.c
+			  get_median.c\
+			  sort_numbers_a.c\
+			  sort_numbers_b.c			  
 
 B_SOURCES	=
 

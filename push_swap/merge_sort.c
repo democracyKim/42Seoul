@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 16:36:23 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/03 17:11:59 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ static int flag_ab(t_stack *stack_a, t_stack *stack_b, int depth)
         sort_three_number_b(stack_b);
     }
     pivot = get_median(stack_a);
-	ft_printf("pivot = %d\n", pivot);
     split_stack(stack_a, stack_b, pivot);
 	return (0);
 }
