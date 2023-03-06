@@ -6,13 +6,38 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 14:39:01 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:25:22 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void sort_three_number(t_stack *stack_a)
+{
+	int pattern;
+
+	pattern = pattern_three_number(stack_a);
+	if (pattern == 1)
+	{
+		sa(stack_a);
+		rra(stack_a);
+	}
+	else if (pattern == 2)
+		ra(stack_a);
+	else if (pattern == 3)
+		rra(stack_a);
+	else if (pattern == 4)
+		sa(stack_a);
+	else if (pattern == 5)
+	{
+		sa(stack_a);
+		ra(stack_a);
+	}
+	else
+		return;
+}
+
+void sort_four_number(t_stack *stack_a)
 {
 	int a;
 	int b;
