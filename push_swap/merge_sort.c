@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 17:11:59 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 14:51:31 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static void split_stack_b(t_stack *stack_a, t_stack *stack_b, int pivot)
 	{
 		if (stack_top(stack_a) >= pivot)
 		{
-			pb(stack_a, stack_b);
+			pa(stack_b, stack_a);
 			size_stack--;
 		}
 		else
-			rra(stack_a);
+			rrb(stack_a);
 		size--;
 	}
 	if (size_stack == 3)
@@ -60,7 +60,7 @@ static int flag_ba(t_stack *stack_a, t_stack *stack_b, int depth)
         return (-1);
     else if (stack_size(stack_a) == 2)
     {
-		sa(stack_a);
+		sb(stack_a);
         return (-1);
     }
     else if (stack_size(stack_a) == 3)
