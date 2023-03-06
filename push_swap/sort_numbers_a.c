@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 15:34:38 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 16:04:11 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ void sort_three_numbers(t_stack *stack_a)
 	else if (pattern == 3)
 		rra(stack_a);
 	else if (pattern == 4)
-		sa(stack_a);
-	else if (pattern == 5)
 	{
 		sa(stack_a);
 		ra(stack_a);
 	}
+	else if (pattern == 5)
+		sa(stack_a);
 	else
 		return;
 }
 
-void sort_four_number(t_stack *stack_a)
+void sort_four_numbers(t_stack *stack_a)
 {
 	int a;
 	int b;
@@ -63,3 +63,4 @@ void sort_four_number(t_stack *stack_a)
 		ra(stack_a);
 	}
 }
+
