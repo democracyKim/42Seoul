@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 16:04:11 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 18:00:53 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three_numbers(t_stack *stack_a)
+static void sort_three_numbers(t_stack *stack_a)
 {
 	int pattern;
 
@@ -37,30 +37,27 @@ void sort_three_numbers(t_stack *stack_a)
 		return;
 }
 
-void sort_four_numbers(t_stack *stack_a)
+// void sort_four_numbers(t_stack *stack_a)
+// {
+// 	int pattern;
+
+// 	pattern = pattern_four_numbers(stack_a);
+	
+// }
+
+
+int	sort_a(t_stack *stack_a)
 {
-	int a;
-	int b;
-	int c;
+	int max_depth;
 
-	a = stack_a->top->data;
-	b = stack_a->top->prev->data;
-	c = stack_a->top->prev->prev->data;
-	if (a > b && b < c && a < c)
+	max_depth = stack_a->max_depth;
+    if (stack_size(stack_a) <= 1 || is_stack_sorted_b(stack_a))
+        return (COMPLETE);
+    else if (stack_size(stack_a) == 2)
 		sa(stack_a);
-	else if (a < b && b > c && a > c)
-		rra(stack_a);
-	else if (a > b && b < c && a > c)
-		ra(stack_a);
-	else if (a > b && b > c && a > c)
-	{
-		sa(stack_a);
-		rra(stack_a);
-	}
-	else if (a < b && b > c && a < c)
-	{
-		sa(stack_a);
-		ra(stack_a);
-	}
+    else if (stack_size(stack_a) == 3)
+        sort_three_numbers(stack_a);
+	else
+		return (CONTINUE);
+	return (COMPLETE);
 }
-

@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:39:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 15:34:24 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 18:00:34 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three_numbers_b(t_stack *stack_b)
+static void sort_three_numbers_b(t_stack *stack_b)
 {
 	int pattern;
 
@@ -35,4 +35,17 @@ void sort_three_numbers_b(t_stack *stack_b)
 	}
 	else
 		return ;
+}
+
+int	sort_b(t_stack *stack_b)
+{
+    if (stack_size(stack_b) <= 1 || is_stack_sorted_b(stack_b))
+        return (COMPLETE);
+    else if (stack_size(stack_b) == 2)
+		sb(stack_b);
+    else if (stack_size(stack_b) == 3)
+        sort_three_numbers_b(stack_b);
+	else
+		return (CONTINUE);
+	return (COMPLETE);
 }

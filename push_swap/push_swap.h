@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 15:36:46 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 18:00:45 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ enum e_definition
 {
 	AB = 1,
 	BA = -1,
+	COMPLETE = 0,
+	CONTINUE = 2,
 };
 
 typedef struct t_stack_node {
@@ -65,10 +67,13 @@ void			push_swap(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
 void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag, int depth);
 int				get_median(t_stack *stack);
-void			sort_three_numbers(t_stack *stack_a);
-void			sort_three_numbers_b(t_stack *stack_b);
 int				is_stack_sorted_b(t_stack *stack);
 int				pattern_three_numbers(t_stack *stack);
+
+//sort_numbers.c
+int				sort_b(t_stack *stack_b);
+int				sort_a(t_stack *stack_a);
+
 
 
 
