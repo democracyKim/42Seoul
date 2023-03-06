@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 15:15:20 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:36:46 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,12 @@ void			display_stack(t_stack *list);
 void			error_exit(char *message, t_stack *stack_a, t_stack *stack_b);
 void			push_swap(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
-void			sort_three_number(t_stack *stack_a);
 void merge_sort(t_stack *stack_a, t_stack *stack_b, int flag, int depth);
 int				get_median(t_stack *stack);
-void			sort_three_number(t_stack *stack_a);
-void			sort_three_number_b(t_stack *stack_b);
+void			sort_three_numbers(t_stack *stack_a);
+void			sort_three_numbers_b(t_stack *stack_b);
 int				is_stack_sorted_b(t_stack *stack);
-int				pattern_three_number(t_stack *stack);
+int				pattern_three_numbers(t_stack *stack);
 
 
 

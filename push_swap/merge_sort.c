@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:28:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 14:51:31 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:37:24 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void split_stack(t_stack *stack_a, t_stack *stack_b, int pivot)
 		size--;
 	}
 	if (size_stack == 3)
-		sort_three_number(stack_a);
+		sort_three_numbers(stack_a);
 }
 
 static void split_stack_b(t_stack *stack_a, t_stack *stack_b, int pivot)
@@ -47,7 +47,7 @@ static void split_stack_b(t_stack *stack_a, t_stack *stack_b, int pivot)
 		size--;
 	}
 	if (size_stack == 3)
-		sort_three_number_b(stack_a);
+		sort_three_numbers_b(stack_a);
 }
 
 static int flag_ba(t_stack *stack_a, t_stack *stack_b, int depth)
@@ -65,7 +65,7 @@ static int flag_ba(t_stack *stack_a, t_stack *stack_b, int depth)
     }
     else if (stack_size(stack_a) == 3)
     {
-        sort_three_number_b(stack_a);
+        sort_three_numbers_b(stack_a);
         return (-1);
     }
 	if (stack_size(stack_b) == 2)
@@ -75,7 +75,7 @@ static int flag_ba(t_stack *stack_a, t_stack *stack_b, int depth)
 	}
     else if (stack_size(stack_b) == 3)
     {
-        sort_three_number(stack_b);
+        sort_three_numbers(stack_b);
     }
     pivot = get_median(stack_a);
     split_stack_b(stack_a, stack_b, pivot);
@@ -97,7 +97,7 @@ static int flag_ab(t_stack *stack_a, t_stack *stack_b, int depth)
     }
     else if (stack_size(stack_a) == 3)
     {
-        sort_three_number(stack_a);
+        sort_three_numbers(stack_a);
         return (-1);
     }
 	if (stack_size(stack_b) == 2)
@@ -107,7 +107,7 @@ static int flag_ab(t_stack *stack_a, t_stack *stack_b, int depth)
 	}
     else if (stack_size(stack_b) == 3)
     {
-        sort_three_number_b(stack_b);
+        sort_three_numbers_b(stack_b);
     }
     pivot = get_median(stack_a);
     split_stack(stack_a, stack_b, pivot);

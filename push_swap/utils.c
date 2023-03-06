@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:44:32 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 15:16:37 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:34:19 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	pattern_three_number(t_stack *stack)
+int	pattern_three_numbers(t_stack *stack)
 {
 	int		a;
 	int		b;
