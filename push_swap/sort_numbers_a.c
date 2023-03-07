@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 18:00:53 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:12:39 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ static void sort_three_numbers(t_stack *stack_a)
 
 int	sort_a(t_stack *stack_a)
 {
-	int max_depth;
-
-	max_depth = stack_a->max_depth;
     if (stack_size(stack_a) <= 1 || is_stack_sorted_b(stack_a))
         return (COMPLETE);
     else if (stack_size(stack_a) == 2)

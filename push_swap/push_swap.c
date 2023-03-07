@@ -6,28 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/06 15:56:14 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:11:32 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int max_depth(t_stack *stack)
-{
-    int	n;
-	int	max_depth;
-	
-	n = stack_size(stack);
-	max_depth = 0;
-    while (n > 0)
-	{
-		n /= 3;
-		max_depth++;
-    }
-    return (max_depth);
-}
-
-void merge_stacks(t_stack *stack_a, t_stack *stack_b)
+static void merge_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	while (!is_stack_sorted(stack_a))
 	{
@@ -49,12 +34,16 @@ void merge_stacks(t_stack *stack_a, t_stack *stack_b)
     }
 }
 
+static void	merge_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	merge_sort_a(stack_a, stack_b);
+	display_two_stack(stack_a, stack_b);
+	merge_sort_b(stack_a, stack_b);
+	display_two_stack(stack_a, stack_b);
+	merge_stacks(stack_a, stack_b);
+}
+
 void push_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	stack_a->max_depth = max_depth(stack_a);
-	stack_b->max_depth = stack_a->max_depth;
-	merge_sort(stack_a, stack_b, AB, 0);
-	display_two_stack(stack_a, stack_b);
-	ft_printf("<<<< ok >>>>\n");
-	merge_stacks(stack_a, stack_b);
+	merge_sort(stack_a, stack_b);
 }
