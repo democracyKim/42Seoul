@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:11:29 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 14:42:03 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:39:20 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ static void	reverse_rotate(t_stack *list)
 
 	if (list == NULL || list->head == NULL || list->head->next == NULL)
 		return ;
-
 	head = list->head;
 	top = list->top;
 	top->next = head;
 	head->prev = top;
-
 	list->top = head;
 	list->head = head->next;
 	list->top->next = NULL;

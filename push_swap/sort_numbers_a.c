@@ -6,15 +6,15 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 13:58:42 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:54:46 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void sort_three_numbers(t_stack *stack_a)
+static void	sort_three_numbers(t_stack *stack_a)
 {
-	int pattern;
+	int	pattern;
 
 	pattern = pattern_three_numbers(stack_a);
 	if (pattern == 1)
@@ -42,18 +42,16 @@ static void sort_three_numbers(t_stack *stack_a)
 // 	int pattern;
 
 // 	pattern = pattern_four_numbers(stack_a);
-	
 // }
-
 
 int	sort_a(t_stack *stack_a)
 {
-    if (stack_size(stack_a) <= 1 || is_stack_sorted_b(stack_a))
-        return (COMPLETE);
-    else if (stack_size(stack_a) == 2)
+	if (stack_size(stack_a) <= 1 || is_stack_sorted_a(stack_a))
+		return (COMPLETE);
+	else if (stack_size(stack_a) == 2)
 		sa(stack_a);
-    else if (stack_size(stack_a) == 3)
-        sort_three_numbers(stack_a);
+	else if (stack_size(stack_a) == 3)
+		sort_three_numbers(stack_a);
 	else
 		return (CONTINUE);
 	return (COMPLETE);

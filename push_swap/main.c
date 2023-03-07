@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:44:14 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/03 15:45:56 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:52:43 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (fill_stack(stack_a, argc, argv) == -1)
 		return (1);
-	if (is_stack_sorted(stack_a))
+	if (is_stack_sorted_a(stack_a))
 		destroy_stacks_and_exit(stack_a, stack_b, 0);
 	push_swap(stack_a, stack_b);
 	display_two_stack(stack_a, stack_b);

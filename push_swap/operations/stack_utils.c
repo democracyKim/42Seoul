@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:32:21 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 11:50:03 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:50:59 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	display_stack(t_stack *list)
+static void	display_stack(t_stack *list)
 {
 	t_stack_node	*dummy;
 
@@ -60,7 +60,7 @@ void	destroy_stack(t_stack **list)
 	ft_printf("destroy complete\n");
 }
 
-int is_stack_sorted(t_stack *stack)
+int	is_stack_sorted_a(t_stack *stack)
 {
 	t_stack_node	*below;
 	int				data;
@@ -79,7 +79,7 @@ int is_stack_sorted(t_stack *stack)
 	return (1);
 }
 
-int is_stack_sorted_b(t_stack *stack)
+int	is_stack_sorted_b(t_stack *stack)
 {
 	t_stack_node	*below;
 	int				data;
@@ -96,14 +96,4 @@ int is_stack_sorted_b(t_stack *stack)
 		below = below->prev;
 	}
 	return (1);
-}
-
-size_t	stack_size(t_stack *stack)
-{
-	size_t	size;
-
-	if (stack == NULL)
-		return (0);
-	size = stack->size;
-	return (size);
 }

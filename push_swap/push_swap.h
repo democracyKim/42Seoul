@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 11:11:51 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:55:09 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ t_stack			*create_stack(void);
 t_stack_node	*create_new_node(int data);
 int				push(t_stack *stack, int data);
 int				pop(t_stack *stack);
-void			display_stack(t_stack *list);
 void			display_two_stack(t_stack *stack_a, t_stack *stack_b);
 void			destroy_stack(t_stack **list);
 int				stack_top(t_stack *stack);
@@ -55,25 +54,20 @@ void			ra(t_stack *stack_a);
 void			rb(t_stack *stack_b);
 void			rr(t_stack *stack_a, t_stack *stack_b);
 int				fill_stack(t_stack *stack_a, int argc, char **argv);
-int				is_stack_sorted(t_stack *stack);
 void			destroy_stacks_and_exit(t_stack *stack_a, \
 				t_stack *stack_b, int exit_status);
-void			display_stack(t_stack *list);
 void			error_exit(char *message, t_stack *stack_a, t_stack *stack_b);
 void			push_swap(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
 int				get_median(t_stack *stack);
+int				is_stack_sorted_a(t_stack *stack);
 int				is_stack_sorted_b(t_stack *stack);
 int				pattern_three_numbers(t_stack *stack);
-void merge_sort_b(t_stack *stack_a, t_stack *stack_b);
-void merge_sort_a(t_stack *stack_a, t_stack *stack_b);
+void			merge_sort_b(t_stack *stack_a, t_stack *stack_b);
+void			merge_sort_a(t_stack *stack_a, t_stack *stack_b);
 
 //sort_numbers.c
 int				sort_b(t_stack *stack_b);
 int				sort_a(t_stack *stack_a);
-
-
-
-
 
 #endif

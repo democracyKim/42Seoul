@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:58:11 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/02 14:42:22 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:38:37 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ int	push(t_stack *stack, int data)
 	return (0);
 }
 
-static int find_min(t_stack_node *head)
+static int	find_min(t_stack_node *head)
 {
-	int min = INT_MAX;
+	int	min;
+
+	min = INT_MAX;
 	while (head != NULL)
 	{
 		if (head->data < min)
