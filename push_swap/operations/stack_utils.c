@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:32:21 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 11:03:30 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 11:39:34 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,40 +59,19 @@ void	destroy_stack(t_stack **list)
 	*list = NULL;
 }
 
-int	is_stack_sorted_a(t_stack *stack)
+int	stack_top(t_stack *stack)
 {
-	t_stack_node	*below;
-	int				data;
-
-	if (stack == NULL || stack->head == NULL)
-		return (1);
-	data = stack->top->data;
-	below = stack->top->prev;
-	while (below != NULL)
-	{
-		if (below->data < data)
-			return (0);
-		data = below->data;
-		below = below->prev;
-	}
-	return (1);
+	if (stack == NULL || stack->top == NULL)
+		return (-1);
+	return (stack->top->data);
 }
 
-int	is_stack_sorted_b(t_stack *stack)
+size_t	stack_size(t_stack *stack)
 {
-	t_stack_node	*below;
-	int				data;
+	size_t	size;
 
-	if (stack == NULL || stack->head == NULL)
-		return (1);
-	data = stack->top->data;
-	below = stack->top->prev;
-	while (below != NULL)
-	{
-		if (below->data > data)
-			return (0);
-		data = below->data;
-		below = below->prev;
-	}
-	return (1);
+	if (stack == NULL)
+		return (0);
+	size = stack->size;
+	return (size);
 }

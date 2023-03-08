@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   free_two_dementional_array.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 11:07:58 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 14:30:45 by minkim3          ###   ########.fr       */
+/*   Created: 2023/03/08 17:58:44 by minkim3           #+#    #+#             */
+/*   Updated: 2023/03/08 18:01:02 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-void	destroy_stacks_and_exit(t_stack *stack_a, \
-		t_stack *stack_b, int exit_status)
+void	free_two_dementional_array(char **array)
 {
-	destroy_stack(&stack_a);
-	destroy_stack(&stack_b);
-	exit(exit_status);
-}
+	int	i;
 
-void	error_exit(t_stack *stack_a, t_stack *stack_b)
-{
-	ft_printf("Error\n");
-	if (stack_a != NULL)
-		destroy_stack(&stack_a);
-	if (stack_b != NULL)
-		destroy_stack(&stack_b);
-	exit(EXIT_FAILURE);
+	if (array == NULL)
+		return ;
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

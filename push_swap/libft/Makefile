@@ -6,7 +6,7 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 13:37:57 by minkim3           #+#    #+#              #
-#    Updated: 2023/02/28 19:00:17 by minkim3          ###   ########.fr        #
+#    Updated: 2023/03/08 18:07:20 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,8 @@ SRCS = allocate_new_memory/ft_calloc.c\
 		compare_or_find_something_in_string/ft_strrchr.c\
 		compare_or_find_something_in_string/ft_strncmp.c\
 		compare_or_find_something_in_string/ft_strnstr.c\
+		exit/error_return.c\
+		exit/free_two_dementional_array.c\
 		write/ft_putchar_fd.c\
 		write/ft_putstr_fd.c\
 		write/ft_putendl_fd.c\
@@ -65,7 +67,6 @@ SRCS = allocate_new_memory/ft_calloc.c\
 		write/ft_malloc_error.c\
 		write/ft_minus_and_print.c\
 		write/ft_printf.c\
-		write/error_return.c
 
 SRCS_BONUS = linked_list/ft_lstnew_bonus.c\
 			linked_list/ft_lstadd_front_bonus.c\

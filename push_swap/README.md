@@ -63,10 +63,3 @@ The purpose of the split_stack function in the merge_sort algorithm is to divide
 The split_stack function is called recursively in the merge_sort function, to further divide the sub-stacks into smaller sub-stacks until each sub-stack contains only one or two elements, which are sorted by calling the sort_three_number function.
 
 After all sub-stacks have been sorted, they are merged back into a single stack by calling the merge_stacks function.
-
-### merge_stacks
-The purpose of the merge_stacks function in the merge_sort algorithm is to merge two sorted sub-stacks back into a single sorted stack.
-
-In the merge_sort algorithm, the split_stack function divides the original stack (stack_a) into two sub-stacks based on a pivot value. Each sub-stack is recursively sorted using the merge_sort function until each sub-stack contains only one or two elements, which are sorted using the sort_three_number function.
-
-After all sub-stacks have been sorted, the merge_stacks function is called to merge the sub-stacks back into a single sorted stack. The function compares the top elements of both stacks, and pushes the smaller element to the bottom of the merged stack. This process is repeated until both sub-stacks are empty, resulting in a single sorted stack.

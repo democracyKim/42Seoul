@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 14:55:09 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 18:27:38 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 enum e_definition
 {
+	ERROR = -1,
 	COMPLETE = 0,
 	CONTINUE = 2,
 };
@@ -35,12 +36,12 @@ typedef struct list {
 
 t_stack			*create_stack(void);
 t_stack_node	*create_new_node(int data);
+int				valid_args(char *av, t_stack *stack_a);
 int				push(t_stack *stack, int data);
 int				pop(t_stack *stack);
 void			display_two_stack(t_stack *stack_a, t_stack *stack_b);
 void			destroy_stack(t_stack **list);
 int				stack_top(t_stack *stack);
-int				stack_bottom(t_stack *stack);
 int				is_stack_empty(t_stack *stack);
 void			pa(t_stack *stack_a, t_stack *stack_b);
 void			pb(t_stack *stack_a, t_stack *stack_b);
@@ -56,7 +57,7 @@ void			rr(t_stack *stack_a, t_stack *stack_b);
 int				fill_stack(t_stack *stack_a, int argc, char **argv);
 void			destroy_stacks_and_exit(t_stack *stack_a, \
 				t_stack *stack_b, int exit_status);
-void			error_exit(char *message, t_stack *stack_a, t_stack *stack_b);
+void			error_exit(t_stack *stack_a, t_stack *stack_b);
 void			push_swap(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
 int				get_median(t_stack *stack);
