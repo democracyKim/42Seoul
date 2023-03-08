@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:45:26 by minkim3           #+#    #+#             */
-/*   Updated: 2023/02/28 19:00:06 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 18:28:08 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,5 +134,6 @@ size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 long long	ft_atoi_extension(const char *str);
 int			error_return(char *message, int return_value);
+void		free_two_dementional_array(char **array);
 
 #endif
