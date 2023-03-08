@@ -6,13 +6,13 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 13:19:43 by minkim3           #+#    #+#              #
-#    Updated: 2023/03/07 10:55:06 by minkim3          ###   ########.fr        #
+#    Updated: 2023/03/08 11:04:54 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -MMD
-NAME		= push_swap
+NAME		= push_swap.a
 AR			= ar -rcs
 RM			= rm -f
 HEADER		= push_swap.h
@@ -32,7 +32,8 @@ SOURCES		= ./operations/doubly_linked_stack.c\
 			  merge_sort_b.c\
 			  get_median.c\
 			  sort_numbers_a.c\
-			  sort_numbers_b.c			  
+			  sort_numbers_b.c\
+			  main.c
 
 B_SOURCES	=
 
@@ -51,6 +52,7 @@ $(NAME): $(OBJECTS)
 	make -C libft
 	cp $(LIBFT) ./$(NAME)
 	ar rcs $@ $^
+	cc $(SOURCES) $(CFLAGS) $(LIBFT) $(NAME) -o push_swap
 
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)

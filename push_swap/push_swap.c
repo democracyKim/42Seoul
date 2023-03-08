@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 14:52:20 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 11:02:47 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	merge_stacks(t_stack *stack_a, t_stack *stack_b)
 			pb(stack_a, stack_b);
 		sa(stack_a);
 	}
-	display_two_stack(stack_a, stack_b);
 	while (!is_stack_empty(stack_b))
 	{
 		while (stack_b->top != NULL && stack_b->top->prev != NULL \
@@ -41,8 +40,6 @@ static void	merge_stacks(t_stack *stack_a, t_stack *stack_b)
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	merge_sort_a(stack_a, stack_b);
-	display_two_stack(stack_a, stack_b);
 	merge_sort_b(stack_a, stack_b);
-	display_two_stack(stack_a, stack_b);
 	merge_stacks(stack_a, stack_b);
 }

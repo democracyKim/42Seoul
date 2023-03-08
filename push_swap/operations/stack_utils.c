@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:32:21 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 14:50:59 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 11:03:30 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	destroy_stack(t_stack **list)
 	}
 	free(*list);
 	*list = NULL;
-	ft_printf("destroy complete\n");
 }
 
 int	is_stack_sorted_a(t_stack *stack)
