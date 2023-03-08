@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_median.c                                       :+:      :+:    :+:   */
+/*   get_pivot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:47:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 14:44:20 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:35:43 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	stack_to_array(t_stack *stack, int *arr, int size)
 {
@@ -66,7 +66,7 @@ static void	quicksort(int *arr, int low, int high)
 	}
 }
 
-int	get_median(t_stack *stack)
+int	get_pivot(t_stack *stack)
 {
 	int	*arr;
 	int	median;

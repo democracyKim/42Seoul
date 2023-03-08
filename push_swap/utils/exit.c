@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 19:40:51 by minkim3          ###   ########.fr       */
+/*   Created: 2023/02/28 11:07:58 by minkim3           #+#    #+#             */
+/*   Updated: 2023/03/08 18:51:23 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	push_swap(t_stack *stack_a, t_stack *stack_b)
+void	destroy_stacks_and_exit(t_stack *stack_a, \
+		t_stack *stack_b, int exit_status)
 {
-	split_stack_a(stack_a, stack_b);
+	destroy_stack(&stack_a);
+	destroy_stack(&stack_b);
+	exit(exit_status);
+}
+
+void	error_exit(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_printf("Error\n");
+	if (stack_a != NULL)
+		destroy_stack(&stack_a);
+	if (stack_b != NULL)
+		destroy_stack(&stack_b);
+	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:12:10 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 12:54:26 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:26:01 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	is_stack_sorted_b(t_stack *stack)
 	int				data;
 
 	if (stack == NULL || stack->head == NULL)
-		return (1);
+		return (-1);
 	data = stack->top->data;
 	below = stack->top->prev;
 	while (below != NULL)
@@ -53,4 +53,38 @@ int	is_stack_sorted_b(t_stack *stack)
 		below = below->prev;
 	}
 	return (1);
+}
+
+int	stack_min(t_stack *stack, int limit)
+{
+	t_stack_node	*curr;
+	int				min;
+
+	if (is_stack_empty(stack))
+		return (INT_MIN);
+	curr = stack->top;
+	min = curr->data;
+	while (curr && limit--)
+	{
+		if (curr->data < min)
+			min = curr->data;
+		curr = curr->next;
+	}
+	return (min);
+}
+
+int	stack_max(t_stack *stack, int range)
+{
+	t_stack_node	*node;
+	int				max;
+
+	node = stack->top;
+	max = node->data;
+	while (node && range--)
+	{
+		if (node->data > max)
+			max = node->data;
+		node = node->next;
+	}
+	return (max);
 }

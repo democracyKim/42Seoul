@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:58:11 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 14:38:37 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:23:05 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,9 @@ int	push(t_stack *stack, int data)
 	}
 	stack->top = new_node;
 	stack->size++;
-	if (data < stack->min)
-		stack->min = data;
 	return (0);
 }
 
-static int	find_min(t_stack_node *head)
-{
-	int	min;
-
-	min = INT_MAX;
-	while (head != NULL)
-	{
-		if (head->data < min)
-			min = head->data;
-		head = head->next;
-	}
-	return (min);
-}
 
 int	pop(t_stack *stack)
 {
@@ -85,9 +70,5 @@ int	pop(t_stack *stack)
 		stack->head = NULL;
 	free(del_node);
 	stack->size--;
-	if (stack->size == 0)
-		stack->min = INT_MAX;
-	else if (data == stack->min)
-		stack->min = find_min(stack->head);
 	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 18:27:38 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:36:44 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ typedef struct list {
 	t_stack_node	*top;
 	t_stack_node	*head;
 	size_t			size;
-	int				min;
+	int				small_pivot;
+	int				large_pivot;
 }	t_stack;
 
 t_stack			*create_stack(void);
@@ -60,12 +61,13 @@ void			destroy_stacks_and_exit(t_stack *stack_a, \
 void			error_exit(t_stack *stack_a, t_stack *stack_b);
 void			push_swap(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
-int				get_median(t_stack *stack);
+int				get_pivot(t_stack *stack);
 int				is_stack_sorted_a(t_stack *stack);
 int				is_stack_sorted_b(t_stack *stack);
 int				pattern_three_numbers(t_stack *stack);
-void			merge_sort_b(t_stack *stack_a, t_stack *stack_b);
-void			merge_sort_a(t_stack *stack_a, t_stack *stack_b);
+int				quick_sort_a(t_stack *stack_a, t_stack *stack_b, int left, int right);
+int				stack_min(t_stack *stack, int limit);
+int				stack_max(t_stack *stack, int range);
 
 //sort_numbers.c
 int				sort_b(t_stack *stack_b);

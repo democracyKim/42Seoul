@@ -6,7 +6,7 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 13:19:43 by minkim3           #+#    #+#              #
-#    Updated: 2023/03/08 11:13:36 by minkim3          ###   ########.fr        #
+#    Updated: 2023/03/08 19:41:40 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,20 +17,19 @@ AR			= ar -rcs
 RM			= rm -f
 HEADER		= push_swap.h
 LIBFT		= libft/libft.a
-SOURCES		= ./operations/doubly_linked_stack.c\
-			  ./operations/push.c\
+SOURCES		= ./operations/push.c\
 			  ./operations/reverse.c\
 			  ./operations/rotate.c\
 			  ./operations/swap.c\
-			  ./operations/stack_utils.c\
-			  ./operations/stack_utils2.c\
-			  exit.c\
+			  ./utils/stack_utils.c\
+			  ./utils/stack_utils2.c\
+			  ./utils/get_pivot.c\
+			  ./utils/exit.c\
+			  ./utils/doubly_linked_stack.c\
 			  utils.c\
 			  push_swap.c\
 			  fill_stack.c\
-			  merge_sort_a.c\
-			  merge_sort_b.c\
-			  get_median.c\
+			  quick_sort_a.c\
 			  sort_numbers_a.c\
 			  sort_numbers_b.c\
 			  main.c
@@ -67,7 +66,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	make fclean -C libft
-	rm push_swap
 
 re:
 	make fclean

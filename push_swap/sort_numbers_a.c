@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 14:54:46 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:34:21 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ static void	sort_three_numbers(t_stack *stack_a)
 	else
 		return ;
 }
-
-// void sort_four_numbers(t_stack *stack_a)
-// {
-// 	int pattern;
-
-// 	pattern = pattern_four_numbers(stack_a);
-// }
 
 int	sort_a(t_stack *stack_a)
 {
