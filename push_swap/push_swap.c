@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 19:40:51 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/09 11:32:21 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,4 @@
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	split_stack_a(stack_a, stack_b);
 }
