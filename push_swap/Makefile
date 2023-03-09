@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
+#    By: hyojocho <hyojocho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 13:19:43 by minkim3           #+#    #+#              #
-#    Updated: 2023/03/08 19:41:40 by minkim3          ###   ########.fr        #
+#    Updated: 2023/03/09 14:00:16 by hyojocho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ SOURCES		= ./operations/push.c\
 			  utils.c\
 			  push_swap.c\
 			  fill_stack.c\
-			  quick_sort_a.c\
 			  sort_numbers_a.c\
 			  sort_numbers_b.c\
 			  main.c
