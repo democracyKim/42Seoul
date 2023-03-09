@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:39:06 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/09 11:40:06 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/09 13:35:25 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	get_pivot(t_stack *stack)
 	int	*arr;
 	int	size;
 	int	small_pivot_idx;
-	int	large_pivot_idx;
+	int	big_pivot_idx;
 	int	range;
 
 	size = stack_size(stack);
@@ -79,10 +79,10 @@ void	get_pivot(t_stack *stack)
 	quicksort(arr, 0, size - 1);
 	range = size / 3;
 	small_pivot_idx = range - 1;
-	large_pivot_idx = range * 2 - 1;
+	big_pivot_idx = range * 2 - 1;
 	if (size % 3 == 2)
-		large_pivot_idx++;
+		big_pivot_idx++;
 	stack->small_pivot = arr[small_pivot_idx];
-	stack->large_pivot = arr[large_pivot_idx];
+	stack->big_pivot = arr[big_pivot_idx];
 	free(arr);
 }

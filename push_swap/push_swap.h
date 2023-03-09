@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/09 11:40:18 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/09 13:35:08 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct list {
 	t_stack_node	*head;
 	size_t			size;
 	int				small_pivot;
-	int				large_pivot;
+	int				big_pivot;
 }	t_stack;
 
 t_stack			*create_stack(void);

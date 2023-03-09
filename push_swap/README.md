@@ -11,7 +11,47 @@ Stack b : empty
 
 goal : sort numbers in ascending order into stack a  
 
-### Functions before sorting
+## Sort by Greedy
+A greedy algorithm is a type of algorithm that makes locally optimal choices at each step in the hope of finding a global optimum solution. In the context of sorting algorithms, a greedy approach can involve calculating the cost of each node to the sorting stack and choosing the best action based on that cost.  
+
+To implement this approach, you can first move every node in the unsorted list to a second stack called stack_b. However, if you have a standard (pivot number), you can categorize the numbers into different groups. For example, let's say you have two pivot numbers - a small pivot that represents the smallest one-third of the numbers, and a large pivot that represents the largest two-thirds of the numbers.  
+
+1. Pass the numbers that are larger than the big pivot to another stack (stack_b).
+2. If a number is smaller than the small pivot, move it to the bottom of the original stack (stack_a).
+3. Once you've completed this process, you'll have three parts of the numbers: the ones that are bigger than the big pivot in stack_a, the ones that are smaller than the small pivot but bigger than the big pivot at the top of stack_b, and the ones that are smaller than the small pivot at the bottom of stack_b.
+4. Finally, move the numbers from stack_a to stack_b. Now you'll have three parts of the numbers in stack_b - the ones that are larger than the big pivot, the ones that are between the big and small pivots, and the ones that are smaller than the small pivot.
+This approach divides the numbers into three groups based on their size relative to the two pivot numbers. By doing this, you can reduce the number of comparisons required to sort the list, and the algorithm becomes more efficient.
+
+1. get pivot
+```c
+void	get_pivot(t_stack *stack)
+{
+	int	*arr;
+	int	size;
+	int	small_pivot_idx;
+	int	large_pivot_idx;
+	int	range;
+
+	size = stack_size(stack);
+	if (is_stack_empty(stack) || size == 1)
+		return ;
+	arr = (int *)malloc(size * sizeof(int));
+	if (!arr)
+		exit(1);
+	stack_to_array(stack, arr, size);
+	quicksort(arr, 0, size - 1);
+	range = size / 3;
+	small_pivot_idx = range - 1;
+	large_pivot_idx = range * 2 - 1;
+	if (size % 3 == 2)
+		large_pivot_idx++;
+	stack->small_pivot = arr[small_pivot_idx];
+	stack->large_pivot = arr[large_pivot_idx];
+	free(arr);
+}
+```
+
+## Functions before sorting
 1. fill_stack.c
 ```c
 int	fill_stack(t_stack *stack_a, int argc, char **argv)
@@ -177,5 +217,3 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("rrr\n");
 }
 ```
-
-### sorting
