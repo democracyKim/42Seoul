@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:47:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 19:35:43 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/09 11:07:29 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,28 @@ static void	quicksort(int *arr, int low, int high)
 	}
 }
 
-int	get_pivot(t_stack *stack)
+void	get_pivot(t_stack *stack)
 {
 	int	*arr;
-	int	median;
 	int	size;
+	int	small_pivot_idx;
+	int	large_pivot_idx;
+	int	range;
 
 	size = stack_size(stack);
 	if (is_stack_empty(stack) || size == 1)
-		return (stack_top(stack));
+		return ;
 	arr = (int *)malloc(size * sizeof(int));
 	if (!arr)
 		exit(1);
 	stack_to_array(stack, arr, size);
 	quicksort(arr, 0, size - 1);
-	if (size % 2 == 0)
-		median = (arr[size / 2 - 1] + arr[size / 2]) / 2;
-	else
-		median = arr[size / 2];
+	range = size / 3;
+	small_pivot_idx = range - 1;
+	large_pivot_idx = range * 2 - 1;
+	if (size % 3 == 2)
+		large_pivot_idx++;
+	stack->small_pivot = arr[small_pivot_idx];
+	stack->large_pivot = arr[large_pivot_idx];
 	free(arr);
-	return (median);
 }
