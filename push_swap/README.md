@@ -22,6 +22,16 @@ To implement this approach, you can first move every node in the unsorted list t
 4. Finally, move the numbers from stack_a to stack_b. Now you'll have three parts of the numbers in stack_b - the ones that are larger than the big pivot, the ones that are between the big and small pivots, and the ones that are smaller than the small pivot.
 This approach divides the numbers into three groups based on their size relative to the two pivot numbers. By doing this, you can reduce the number of comparisons required to sort the list, and the algorithm becomes more efficient.
 
+```c
+void	push_swap(t_stack *stack_a, t_stack *stack_b)
+{
+	get_pivot(stack_a);
+	move_small_and_middle_to_b(stack_a, stack_b);
+	move_big_to_b(stack_a, stack_b);
+	display_two_stack(stack_a, stack_b);
+}
+```
+
 1. get pivot
 ```c
 void	get_pivot(t_stack *stack)
@@ -50,6 +60,59 @@ void	get_pivot(t_stack *stack)
 	free(arr);
 }
 ```
+2. using pivot, split stack
+```c
+static void move_small_and_middle_to_b(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack_node	*dummy;
+	size_t			size;
+	
+	size = stack_a->size;
+	dummy = stack_a->top;
+	while (dummy != NULL && size)
+	{
+		if (stack_a->big_pivot >= dummy->data)
+		{
+			dummy = dummy->prev;
+			pb(stack_a, stack_b);
+			if (stack_b->top->data <= stack_a->small_pivot)
+				rb(stack_b);
+			size--;
+		}
+		else
+		{
+			dummy = dummy->prev;
+			ra(stack_a);
+			size--;
+		}
+	}
+}
+
+static void	move_big_to_b(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack_node	*dummy;
+	
+	dummy = stack_a->top;
+	while (dummy != NULL)
+	{
+		pb(stack_a, stack_b);
+		dummy = dummy->prev;
+	}
+}
+```
+3. sort by greedy
+The purpose of this step is to calculate each node of stack_b for sorting stack_a, and select the node that has the minimum cost to pass it to stack_a.  
+
+To calculate the cost, there are two parts: The first is cost of passing the selected node from stack_b to stack_a. "pa" operation always has a cost of 1, and "rb" operation is zero at the top and increases by 1 towards the bottom, since we need to move the node further down the stack. Similarly, "rrb" operation is zero at the bottom and increases by 1 towards the top. Therefore, the total cost of passing the selected node is 1 + min(rb, rrb).  
+
+The second is the cost of sorting stack_a. It is calculated differently for method 1 and method 2.  
+
+
+<img src = "./images/greedy1.jpg">  
+<img src = "./images/greedy2.jpg"> 
+<img src = "./images/greedy3.jpg"> 
+<img src = "./images/greedy4.jpg"> 
+
 
 ## Functions before sorting
 1. fill_stack.c
@@ -103,6 +166,8 @@ int	valid_args(char *av, t_stack *stack_a)
 ```
 
 2. operations.c
+<img src = "./images/operations1.jpg">  
+
 ### sa, sb, ss
 ```c
 static void	swap(t_stack *list)
@@ -215,5 +280,32 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
 	ft_printf("rrr\n");
+}
+```
+
+<img src = "./images/operations2.jpg">
+
+```c
+static void	push_to(t_stack *from, t_stack *to)
+{
+	int	data;
+
+	if (from->top)
+	{
+		data = pop(from);
+		push(to, data);
+	}
+}
+
+void	pa(t_stack *stack_a, t_stack *stack_b)
+{
+	push_to(stack_b, stack_a);
+	ft_printf("pa\n");
+}
+
+void	pb(t_stack *stack_a, t_stack *stack_b)
+{
+	push_to(stack_a, stack_b);
+	ft_printf("pb\n");
 }
 ```
