@@ -1,0 +1,6 @@
+push_swap
+*.o
+*.d
+*.sh
+.vscode
+.DS_Store
