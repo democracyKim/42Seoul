@@ -110,8 +110,6 @@ The second is the cost of sorting stack_a. It is calculated differently for meth
 
 <img src = "./images/greedy1.jpg">  
 <img src = "./images/greedy2.jpg"> 
-<img src = "./images/greedy3.jpg"> 
-<img src = "./images/greedy4.jpg"> 
 
 
 ## Functions before sorting
