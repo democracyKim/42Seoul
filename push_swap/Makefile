@@ -6,7 +6,7 @@
 #    By: hyojocho <hyojocho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 13:19:43 by minkim3           #+#    #+#              #
-#    Updated: 2023/03/09 14:00:16 by hyojocho         ###   ########.fr        #
+#    Updated: 2023/03/10 15:43:19 by hyojocho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	make fclean -C libft
+	rm push_swap
 
 re:
 	make fclean
