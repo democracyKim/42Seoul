@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/13 20:05:46 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/13 21:33:17 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	move_big_to_b(t_stack *stack_a, t_stack *stack_b)
 	t_stack_node	*dummy;
 	
 	dummy = stack_a->top;
-	while (dummy != NULL && sort_a(stack_a) == CONTINUE)
+	while (dummy != NULL)
 	{
 		pb(stack_a, stack_b);
 		dummy = dummy->prev;
