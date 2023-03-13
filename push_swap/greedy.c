@@ -54,6 +54,16 @@ static size_t	biggest_index(t_stack *stack)
 	return (max_index);
 }
 
+static void	min_to_top(t_stack *stack_a)
+{
+	if (stack_a == NULL || stack_a->head == NULL || stack_a->head->next == NULL)
+		return ;
+	while (stack_a->head->data > stack_a->head->next->data)
+		rra(stack_a);
+	if (stack_a->top->data > stack_a->head->data)
+		rra(stack_a);
+}
+
 static void	sort_stack_a(t_stack *stack_a, int number)
 {
 	t_stack_node	*dummy;
@@ -62,7 +72,10 @@ static void	sort_stack_a(t_stack *stack_a, int number)
 		return ;
 	dummy = stack_a->top;
 	if (num_is_biggest(stack_a, number) == TRUE)
+	{
+		min_to_top(stack_a);
 		return ;
+	}
 	while (dummy && dummy->data < number)
 	{
 		dummy = dummy->prev;
@@ -73,16 +86,6 @@ static void	sort_stack_a(t_stack *stack_a, int number)
 	}
 	while (biggest_index(stack_a) + 1 != stack_size(stack_a)\
 	&& stack_a->head && stack_a->head->data > number)
-		rra(stack_a);
-}
-
-static void	min_to_top(t_stack *stack_a)
-{
-	if (stack_a == NULL || stack_a->head == NULL || stack_a->head->next == NULL)
-		return ;
-	while (stack_a->head->data > stack_a->head->next->data)
-		rra(stack_a);
-	if (stack_a->top->data > stack_a->head->data)
 		rra(stack_a);
 }
 
