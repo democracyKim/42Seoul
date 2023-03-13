@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 19:34:21 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/13 15:07:50 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	sort_a(t_stack *stack_a)
 {
 	if (stack_size(stack_a) <= 1 || is_stack_sorted_a(stack_a))
 		return (COMPLETE);
-	else if (stack_size(stack_a) == 2)
+	if (stack_size(stack_a) == 2)
 		sa(stack_a);
 	else if (stack_size(stack_a) == 3)
 		sort_three_numbers(stack_a);

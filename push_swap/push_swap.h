@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyojocho <hyojocho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/03/12 17:21:20 by hyojocho         ###   ########.fr       */
-=======
-/*   Updated: 2023/03/10 20:21:53 by minkim3          ###   ########.fr       */
->>>>>>> b3f765c5e78c2ce94d95fc00accded4a3b2605c7
+/*   Updated: 2023/03/13 19:53:28 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +19,11 @@ enum e_definition
 	ERROR = -1,
 	COMPLETE = 0,
 	CONTINUE = 2,
-	True = 1,
-	False = -1,
+	RB = 3,
+	RRB = 4,
+	SPECIAL = -10,
+	TRUE = 1,
+	FALSE = -1,
 };
 
 typedef struct t_stack_node {
@@ -80,5 +79,6 @@ int				sort_a(t_stack *stack_a);
 // greedy
 void			apply_greedy(t_stack *stack_a, t_stack *stack_b);
 size_t			get_min_cost_index(t_stack *stack_a, t_stack *stack_b);
+int				num_is_biggest(t_stack *stack_a, int number);
 
 #endif

@@ -6,11 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/03/11 21:25:10 by hyojocho         ###   ########.fr       */
-=======
-/*   Updated: 2023/03/10 16:49:08 by minkim3          ###   ########.fr       */
->>>>>>> b3f765c5e78c2ce94d95fc00accded4a3b2605c7
+/*   Updated: 2023/03/13 15:10:39 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +16,9 @@ static void move_small_and_middle_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack_node	*dummy;
 	size_t			size;
-	
-	size = stack_a->size;
+
 	dummy = stack_a->top;
+	size = stack_a->size;
 	while (dummy != NULL && size)
 	{
 		if (stack_a->big_pivot >= dummy->data)
@@ -31,14 +27,13 @@ static void move_small_and_middle_to_b(t_stack *stack_a, t_stack *stack_b)
 			pb(stack_a, stack_b);
 			if (stack_b->top->data <= stack_a->small_pivot)
 				rb(stack_b);
-			size--;
 		}
 		else
 		{
 			dummy = dummy->prev;
 			ra(stack_a);
-			size--;
 		}
+		size--;
 	}
 }
 
@@ -47,7 +42,7 @@ static void	move_big_to_b(t_stack *stack_a, t_stack *stack_b)
 	t_stack_node	*dummy;
 	
 	dummy = stack_a->top;
-	while (dummy != NULL)
+	while (dummy != NULL && sort_a(stack_a) == CONTINUE)
 	{
 		pb(stack_a, stack_b);
 		dummy = dummy->prev;

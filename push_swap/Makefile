@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyojocho <hyojocho@student.42.fr>          +#+  +:+       +#+         #
+#    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 13:19:43 by minkim3           #+#    #+#              #
-#    Updated: 2023/03/11 21:26:06 by hyojocho         ###   ########.fr        #
+#    Updated: 2023/03/13 14:26:46 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SOURCES		= ./operations/push.c\
 			  sort_numbers_b.c\
 			  main.c\
 			  greedy.c\
-			  cost_calculation.c\
+			  calculate_cost.c\
 
 B_SOURCES	=
 

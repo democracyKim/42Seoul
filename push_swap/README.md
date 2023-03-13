@@ -107,7 +107,6 @@ To calculate the cost, there are two parts: The first is cost of passing the sel
 
 The second is the cost of sorting stack_a. It is calculated differently for method 1 and method 2.  
 
-
 <img src = "./images/greedy1.jpg">  
 <img src = "./images/greedy2.jpg"> 
 
