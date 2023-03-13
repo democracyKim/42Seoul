@@ -69,14 +69,11 @@ void	apply_greedy(t_stack *stack_a, t_stack *stack_b)
 			min_to_top_b(stack_b, index, RB);
 		else
 			min_to_top_b(stack_b, stack_size(stack_b) - index, RRB);
-		display_two_stack(stack_a, stack_b);
 		sort_stack_a(stack_a, stack_b->top->data);
 		pa(stack_a, stack_b);
 		if (stack_a->top->prev->data < stack_a->top->data \
 		&& stack_a->head->data < stack_a->top->data)
 			ra(stack_a);
-		display_two_stack(stack_a, stack_b);
 	}
-	display_two_stack(stack_a, stack_b);
 	min_to_top(stack_a);
 }
