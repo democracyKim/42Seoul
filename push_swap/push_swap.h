@@ -6,7 +6,11 @@
 /*   By: hyojocho <hyojocho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/03/12 17:21:20 by hyojocho         ###   ########.fr       */
+=======
+/*   Updated: 2023/03/10 20:21:53 by minkim3          ###   ########.fr       */
+>>>>>>> b3f765c5e78c2ce94d95fc00accded4a3b2605c7
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +23,15 @@ enum e_definition
 	ERROR = -1,
 	COMPLETE = 0,
 	CONTINUE = 2,
+	True = 1,
+	False = -1,
 };
 
 typedef struct t_stack_node {
 	int					data;
 	struct t_stack_node	*next;
 	struct t_stack_node	*prev;
+	int					cost;
 }	t_stack_node;
 
 typedef struct list {
