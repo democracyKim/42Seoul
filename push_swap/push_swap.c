@@ -6,7 +6,7 @@
 /*   By: hyojocho <hyojocho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/10 16:17:47 by hyojocho         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:25:10 by hyojocho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 	display_two_stack(stack_a, stack_b);
 	move_small_and_middle_to_b(stack_a, stack_b);
 	move_big_to_b(stack_a, stack_b);
+	apply_greedy(stack_a, stack_b);
 	display_two_stack(stack_a, stack_b);
 }

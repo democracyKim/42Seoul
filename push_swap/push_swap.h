@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hyojocho <hyojocho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/09 13:35:08 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/12 17:21:20 by hyojocho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,11 @@ int				pattern_three_numbers(t_stack *stack);
 int				stack_min(t_stack *stack, int limit);
 int				stack_max(t_stack *stack, int range);
 void			get_pivot(t_stack *stack);
-//sort_numbers.c
+// sort_numbers.c
 int				sort_b(t_stack *stack_b);
 int				sort_a(t_stack *stack_a);
+// greedy
+void			apply_greedy(t_stack *stack_a, t_stack *stack_b);
+size_t			get_min_cost_index(t_stack *stack_a, t_stack *stack_b);
 
 #endif
