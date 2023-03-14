@@ -16,9 +16,7 @@ static void	min_to_top(t_stack *stack_a)
 {
 	if (stack_a == NULL || stack_a->head == NULL || stack_a->head->next == NULL)
 		return ;
-	while (stack_a->head->data > stack_a->head->next->data)
-		rra(stack_a);
-	if (stack_a->top->data > stack_a->head->data)
+	while (is_biggest_num(stack_a, stack_a->head->data) == FALSE)
 		rra(stack_a);
 }
 
