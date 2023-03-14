@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 13:46:53 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 14:49:03 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three_numbers(t_stack *stack_a)
+static void	sort_three_numbers(t_stack *stack_a)
 {
 	int	pattern;
 
@@ -51,7 +51,8 @@ static void	sort_small(t_stack *stack_a, t_stack *stack_b)
 		else
 			ra(stack_a);
 	}
-	sort_three_numbers(stack_a);
+	sort_one_two_three(stack_a);
+	sort_b(stack_b);
 	while(is_stack_empty(stack_b) == FALSE)
 	{
 		while(stack_top(stack_a) < stack_top(stack_b))
@@ -62,7 +63,7 @@ static void	sort_small(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int	sort_a(t_stack *stack_a, t_stack *stack_b)
+int	sort_one_two_three(t_stack *stack_a)
 {
 	size_t	size;
 
@@ -73,6 +74,18 @@ int	sort_a(t_stack *stack_a, t_stack *stack_b)
 		sa(stack_a);
 	else if (size == 3)
 		sort_three_numbers(stack_a);
+	else
+		return (CONTINUE);
+	return (COMPLETE);
+}
+
+int	sort_a(t_stack *stack_a, t_stack *stack_b)
+{
+	size_t	size;
+
+	size = stack_size(stack_a);
+	if (sort_one_two_three(stack_a) == COMPLETE)
+		return (COMPLETE);
 	else if (size <= 6 && is_stack_empty(stack_b) == TRUE)
 		sort_small(stack_a, stack_b);
 	else

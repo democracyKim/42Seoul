@@ -33,7 +33,7 @@ static void	sort_stack_a(t_stack *stack_a, int number)
 		min_to_top(stack_a);
 		return ;
 	}
-	sort_three_numbers(stack_a);
+	sort_one_two_three(stack_a);
 	dummy = stack_a->top;
 	while (dummy && dummy->data < number)
 	{
