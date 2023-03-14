@@ -13,6 +13,22 @@ static size_t	get_passing_cost(size_t index, size_t size)
 		return (rrb_count);
 }
 
+int	is_biggest_num(t_stack *stack_a, int number)
+{
+	t_stack_node	*dummy;
+
+	if (stack_a == NULL || stack_a->top == NULL)
+		return (TRUE);
+	dummy = stack_a->top;
+	while (dummy)
+	{
+		if (dummy->data > number)
+			return (FALSE);
+		dummy = dummy->prev;
+	}
+	return (TRUE);
+}
+
 static size_t	get_sorting_cost(t_stack *stack_a, int number)
 {
 	size_t			cost;
@@ -23,7 +39,7 @@ static size_t	get_sorting_cost(t_stack *stack_a, int number)
 	if (stack_a == NULL || stack_a->top == NULL)
 		return (0);
 	dummy = stack_a->top;
-	if (num_is_biggest(stack_a, number) == TRUE)
+	if (is_biggest_num(stack_a, number) == TRUE)
 		return (0);
 	while (dummy && dummy->data < number)
 	{

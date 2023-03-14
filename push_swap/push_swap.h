@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/13 19:53:28 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 10:41:25 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ enum e_definition
 	RRB = 4,
 	SPECIAL = -10,
 	TRUE = 1,
-	FALSE = -1,
+	FALSE = 0,
 };
 
 typedef struct t_stack_node {
@@ -65,7 +65,7 @@ int				fill_stack(t_stack *stack_a, int argc, char **argv);
 void			destroy_stacks_and_exit(t_stack *stack_a, \
 				t_stack *stack_b, int exit_status);
 void			error_exit(t_stack *stack_a, t_stack *stack_b);
-void			push_swap(t_stack *stack_a, t_stack *stack_b);
+void			move_init(t_stack *stack_a, t_stack *stack_b);
 size_t			stack_size(t_stack *stack);
 int				is_stack_sorted_a(t_stack *stack);
 int				is_stack_sorted_b(t_stack *stack);
@@ -79,6 +79,6 @@ int				sort_a(t_stack *stack_a);
 // greedy
 void			apply_greedy(t_stack *stack_a, t_stack *stack_b);
 size_t			get_min_cost_index(t_stack *stack_a, t_stack *stack_b);
-int				num_is_biggest(t_stack *stack_a, int number);
+int				is_biggest_num(t_stack *stack_a, int number);
 
 #endif

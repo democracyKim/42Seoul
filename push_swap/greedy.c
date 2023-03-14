@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void	min_to_top_b(t_stack *stack_b, size_t number, int flag)
+static void	cheapest_to_top_b(t_stack *stack_b, size_t number, int flag)
 {
 	while(number)
 	{
@@ -10,22 +10,6 @@ static void	min_to_top_b(t_stack *stack_b, size_t number, int flag)
 			rrb(stack_b);
 		number--;
 	}
-}
-
-int	num_is_biggest(t_stack *stack_a, int number)
-{
-	t_stack_node	*dummy;
-
-	if (stack_a == NULL || stack_a->top == NULL)
-		return (TRUE);
-	dummy = stack_a->top;
-	while (dummy)
-	{
-		if (dummy->data > number)
-			return (FALSE);
-		dummy = dummy->prev;
-	}
-	return (TRUE);
 }
 
 static size_t	biggest_index(t_stack *stack)
@@ -68,10 +52,10 @@ static void	sort_stack_a(t_stack *stack_a, int number)
 {
 	t_stack_node	*dummy;
 
-	if (stack_a == NULL || stack_a->top == NULL)
+	if (stack_a == NULL || stack_a->top == NULL || sort_a(stack_a) == COMPLETE)
 		return ;
 	dummy = stack_a->top;
-	if (num_is_biggest(stack_a, number) == TRUE)
+	if (is_biggest_num(stack_a, number) == TRUE)
 	{
 		min_to_top(stack_a);
 		return ;
@@ -96,14 +80,15 @@ void	apply_greedy(t_stack *stack_a, t_stack *stack_b)
 	index = 0;
 	while (!is_stack_empty(stack_b))
 	{
+		sort_b(stack_b);
 		index = get_min_cost_index(stack_a, stack_b);
 		if (index * 2 <= stack_size(stack_b))
-			min_to_top_b(stack_b, index, RB);
+			cheapest_to_top_b(stack_b, index, RB);
 		else
-			min_to_top_b(stack_b, stack_size(stack_b) - index, RRB);
+			cheapest_to_top_b(stack_b, stack_size(stack_b) - index, RRB);
 		sort_stack_a(stack_a, stack_b->top->data);
 		pa(stack_a, stack_b);
-		if (num_is_biggest(stack_a, stack_a->top->data) == TRUE)
+		if (is_biggest_num(stack_a, stack_a->top->data) == TRUE)
 			ra(stack_a);
 	}
 	min_to_top(stack_a);

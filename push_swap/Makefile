@@ -6,7 +6,7 @@
 #    By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 13:19:43 by minkim3           #+#    #+#              #
-#    Updated: 2023/03/13 14:26:46 by minkim3          ###   ########.fr        #
+#    Updated: 2023/03/14 10:14:44 by minkim3          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SOURCES		= ./operations/push.c\
 			  ./utils/exit.c\
 			  ./utils/doubly_linked_stack.c\
 			  utils.c\
-			  push_swap.c\
+			  move_init.c\
 			  fill_stack.c\
 			  sort_numbers_a.c\
 			  sort_numbers_b.c\
