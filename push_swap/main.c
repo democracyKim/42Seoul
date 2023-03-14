@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:44:14 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 10:42:27 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 13:48:00 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ int	main(int argc, char **argv)
 		return (ERROR);
 	if (is_stack_sorted_a(stack_a))
 		destroy_stacks_and_exit(stack_a, stack_b, 0);
+	if (sort_a(stack_a, stack_b) == COMPLETE)
+	{
+		destroy_stacks_and_exit(stack_a, stack_b, 0);
+		return (0);
+	}
 	move_init(stack_a, stack_b);
 	apply_greedy(stack_a, stack_b);
 	destroy_stacks_and_exit(stack_a, stack_b, 0);

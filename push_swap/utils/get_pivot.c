@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:39:06 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/09 13:35:25 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 11:22:44 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,28 @@ void	get_pivot(t_stack *stack)
 	stack->small_pivot = arr[small_pivot_idx];
 	stack->big_pivot = arr[big_pivot_idx];
 	free(arr);
+}
+
+int	get_median(t_stack *stack)
+{
+    int *arr;
+    int size;
+    int median_pivot_idx;
+	int	median;
+
+	size = stack_size(stack);
+	if (is_stack_empty(stack) || size == 1)
+		return (-1);
+	arr = (int *)malloc(size * sizeof(int));
+	if (!arr)
+		exit(1);
+	stack_to_array(stack, arr, size);
+	quicksort(arr, 0, size - 1);
+    median_pivot_idx = size / 2;
+    if (size % 2 == 0)
+        median = (arr[median_pivot_idx - 1] + arr[median_pivot_idx]) / 2;
+    else
+        median = arr[median_pivot_idx];
+    free(arr);
+	return (median);
 }

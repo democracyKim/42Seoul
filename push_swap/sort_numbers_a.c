@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 10:41:48 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 13:46:53 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	sort_three_numbers(t_stack *stack_a)
+void	sort_three_numbers(t_stack *stack_a)
 {
 	int	pattern;
 
@@ -37,26 +37,32 @@ static void	sort_three_numbers(t_stack *stack_a)
 		return ;
 }
 
-// static int	is_stack_sorted_a_from_index(t_stack *stack, size_t index)
-// {
-// 	t_stack_node	*below;
-// 	int				data;
+static void	sort_small(t_stack *stack_a, t_stack *stack_b)
+{
+	int	median;
 
-// 	if (stack == NULL || stack->head == NULL)
-// 		return (TRUE);
-// 	data = stack->top->data;
-// 	below = stack->top->prev;
-// 	while (below != NULL)
-// 	{
-// 		if (below->data < data)
-// 			return (FALSE);
-// 		data = below->data;
-// 		below = below->prev;
-// 	}
-// 	return (TRUE);
-// }
+	median = get_median(stack_a);
+	if (stack_size(stack_a) > 6)
+		return ;
+	while (stack_size(stack_a) > 3)
+	{
+		if (stack_a->top->data <= median)
+			pb(stack_a, stack_b);
+		else
+			ra(stack_a);
+	}
+	sort_three_numbers(stack_a);
+	while(is_stack_empty(stack_b) == FALSE)
+	{
+		while(stack_top(stack_a) < stack_top(stack_b))
+			ra(stack_a);
+		pa(stack_a, stack_b);
+		while(stack_a->head->data < stack_top(stack_a))
+			rra(stack_a);
+	}
+}
 
-int	sort_a(t_stack *stack_a)
+int	sort_a(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t	size;
 
@@ -67,10 +73,8 @@ int	sort_a(t_stack *stack_a)
 		sa(stack_a);
 	else if (size == 3)
 		sort_three_numbers(stack_a);
-	// else if (size == 4)
-	// {
-		
-	// }
+	else if (size <= 6 && is_stack_empty(stack_b) == TRUE)
+		sort_small(stack_a, stack_b);
 	else
 		return (CONTINUE);
 	return (COMPLETE);

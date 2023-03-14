@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:15:38 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 10:16:45 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 13:42:55 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	move_big_to_b(t_stack *stack_a, t_stack *stack_b)
 	t_stack_node	*dummy;
 	
 	dummy = stack_a->top;
-	while (dummy != NULL && sort_a(stack_a) == CONTINUE)
+	while (dummy != NULL && sort_a(stack_a, stack_b) == CONTINUE)
 	{
 		pb(stack_a, stack_b);
 		dummy = dummy->prev;
@@ -51,8 +51,6 @@ static void	move_big_to_b(t_stack *stack_a, t_stack *stack_b)
 
 void	move_init(t_stack *stack_a, t_stack *stack_b)
 {
-	if (sort_a(stack_a) == COMPLETE)
-		return ;
 	get_pivot(stack_a);
 	move_small_and_middle_to_b(stack_a, stack_b);
 	move_big_to_b(stack_a, stack_b);
