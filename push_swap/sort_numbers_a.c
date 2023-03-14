@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:12:30 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 14:49:03 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 15:02:00 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	sort_small(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	while (stack_size(stack_a) > 3)
 	{
-		if (stack_a->top->data <= median)
+		if (stack_a->top->data < median)
 			pb(stack_a, stack_b);
 		else
 			ra(stack_a);

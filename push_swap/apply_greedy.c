@@ -39,14 +39,12 @@ static void	sort_stack_a(t_stack *stack_a, int number)
 	{
 		dummy = dummy->prev;
 		ra(stack_a);
-		while (is_biggest_num(stack_a, stack_a->head->data) == FALSE\
-		&& stack_a->head->data > number)
-			rra(stack_a);
 	}
 	while (is_biggest_num(stack_a, stack_a->head->data) == FALSE\
 	&& stack_a->head && stack_a->head->data > number)
 		rra(stack_a);
 }
+
 
 void	apply_greedy(t_stack *stack_a, t_stack *stack_b)
 {
