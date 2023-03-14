@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calculate_cost.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/14 20:35:42 by minkim3           #+#    #+#             */
+/*   Updated: 2023/03/14 20:37:10 by minkim3          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static size_t	get_passing_cost(size_t index, size_t size)
@@ -15,7 +27,7 @@ static size_t	get_passing_cost(size_t index, size_t size)
 
 void	cheapest_to_top_b(t_stack *stack_b, size_t number, int flag)
 {
-	while(number)
+	while (number)
 	{
 		if (flag == RB)
 			rb(stack_b);

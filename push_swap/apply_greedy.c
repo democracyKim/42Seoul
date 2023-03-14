@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 19:21:19 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 20:31:21 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 20:35:33 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static void	sort_stack_a(t_stack *stack_a, int number)
 	}
 	sort_one_two_three(stack_a);
 	move_small_number(stack_a, number);
-	while (is_biggest_num(stack_a, stack_a->head->data) == FALSE\
+	while (is_biggest_num(stack_a, stack_a->head->data) == FALSE \
 	&& stack_a->head && stack_a->head->data > number)
 		rra(stack_a);
 }
