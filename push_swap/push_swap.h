@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 18:47:44 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 20:27:06 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ enum e_definition
 	CONTINUE = 2,
 	RB = 3,
 	RRB = 4,
+	RA = 5,
+	RRA = 6,
 	SPECIAL = -10,
 	TRUE = 1,
 	FALSE = 0,
@@ -76,6 +78,11 @@ void			get_pivot(t_stack *stack);
 // sort_numbers.c
 int				sort_b(t_stack *stack_b);
 int				sort_a(t_stack *stack_a, t_stack *stack_b);
+void			cheapest_to_top_b(t_stack *stack_b, size_t number, int flag);
+void			min_to_top(t_stack *stack_a);
+void			display_stack(t_stack *list);
+size_t			get_max_index(t_stack *stack);
+
 // greedy
 void			apply_greedy(t_stack *stack_a, t_stack *stack_b);
 size_t			get_min_cost_index(t_stack *stack_a, t_stack *stack_b);

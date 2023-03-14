@@ -13,6 +13,18 @@ static size_t	get_passing_cost(size_t index, size_t size)
 		return (rrb_count);
 }
 
+void	cheapest_to_top_b(t_stack *stack_b, size_t number, int flag)
+{
+	while(number)
+	{
+		if (flag == RB)
+			rb(stack_b);
+		else
+			rrb(stack_b);
+		number--;
+	}
+}
+
 int	is_biggest_num(t_stack *stack_a, int number)
 {
 	t_stack_node	*dummy;

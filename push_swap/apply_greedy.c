@@ -1,18 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   apply_greedy.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/14 19:21:19 by minkim3           #+#    #+#             */
+/*   Updated: 2023/03/14 20:31:21 by minkim3          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	cheapest_to_top_b(t_stack *stack_b, size_t number, int flag)
-{
-	while(number)
-	{
-		if (flag == RB)
-			rb(stack_b);
-		else
-			rrb(stack_b);
-		number--;
-	}
-}
-
-static size_t	get_max_index(t_stack *stack)
+size_t	get_max_index(t_stack *stack)
 {
 	t_stack_node	*dummy;
 	size_t			index;
@@ -38,28 +38,52 @@ static size_t	get_max_index(t_stack *stack)
 	return (max_index);
 }
 
-static void	min_to_top(t_stack *stack_a)
+static size_t	get_number_of_index(t_stack *stack, int number)
 {
-	size_t	max_index;
+	t_stack_node	*dummy;
+	size_t			count;
+
+	if (stack == NULL || stack->top == NULL)
+		return (0);
+	dummy = stack->top;
+	count = 0;
+	while (dummy && dummy->data < number)
+	{
+		dummy = dummy->prev;
+		count++;
+	}
+	return (count);
+}
+
+static void	move_small_number(t_stack *stack, int number)
+{
+	size_t	ra_count;
+	size_t	rra_count;
 	size_t	size;
 
-	max_index = get_max_index(stack_a);
-	size = stack_size(stack_a);
-	if (stack_a == NULL || stack_a->head == NULL || stack_a->head->next == NULL)
-		return ;
-	while (is_biggest_num(stack_a, stack_a->head->data) == FALSE)
+	ra_count = get_number_of_index(stack, number);
+	size = stack_size(stack);
+	rra_count = size - ra_count;
+	if (ra_count <= rra_count)
 	{
-		if (max_index > size / 2)
-			rra(stack_a);
-		else
-			ra(stack_a);
+		while (ra_count > 0)
+		{
+			ra(stack);
+			ra_count--;
+		}
+	}
+	else
+	{
+		while (rra_count > 0)
+		{
+			rra(stack);
+			rra_count--;
+		}
 	}
 }
 
 static void	sort_stack_a(t_stack *stack_a, int number)
 {
-	t_stack_node	*dummy;
-
 	if (stack_a == NULL || stack_a->top == NULL)
 		return ;
 	if (is_biggest_num(stack_a, number) == TRUE)
@@ -68,12 +92,7 @@ static void	sort_stack_a(t_stack *stack_a, int number)
 		return ;
 	}
 	sort_one_two_three(stack_a);
-	dummy = stack_a->top;
-	while (dummy && dummy->data < number)
-	{
-		dummy = dummy->prev;
-		ra(stack_a);
-	}
+	move_small_number(stack_a, number);
 	while (is_biggest_num(stack_a, stack_a->head->data) == FALSE\
 	&& stack_a->head && stack_a->head->data > number)
 		rra(stack_a);

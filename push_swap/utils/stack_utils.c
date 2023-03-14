@@ -6,13 +6,13 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:32:21 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 11:39:34 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 19:36:39 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	display_stack(t_stack *list)
+void	display_stack(t_stack *list)
 {
 	t_stack_node	*dummy;
 

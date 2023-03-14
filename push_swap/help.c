@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_numbers_b.c                                   :+:      :+:    :+:   */
+/*   help.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:39:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/07 14:54:09 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 19:20:28 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,24 @@ static void	sort_three_numbers_b(t_stack *stack_b)
 	}
 	else
 		return ;
+}
+
+void	min_to_top(t_stack *stack_a)
+{
+	size_t	max_index;
+	size_t	size;
+
+	max_index = get_max_index(stack_a);
+	size = stack_size(stack_a);
+	if (stack_a == NULL || stack_a->head == NULL || stack_a->head->next == NULL)
+		return ;
+	while (is_biggest_num(stack_a, stack_a->head->data) == FALSE)
+	{
+		if (max_index > size / 2)
+			rra(stack_a);
+		else
+			ra(stack_a);
+	}
 }
 
 int	sort_b(t_stack *stack_b)
