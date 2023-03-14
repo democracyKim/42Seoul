@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:01 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 14:47:41 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 18:47:44 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ size_t			get_min_cost_index(t_stack *stack_a, t_stack *stack_b);
 int				is_biggest_num(t_stack *stack_a, int number);
 int				get_median(t_stack *stack);
 int				sort_one_two_three(t_stack *stack_a);
+int				put_stack(t_stack *stack, int data);
 
 #endif

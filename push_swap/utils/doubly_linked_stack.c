@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:58:11 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/09 11:07:06 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 18:56:09 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,28 @@ int	push(t_stack *stack, int data)
 		new_node->prev = stack->top;
 	}
 	stack->top = new_node;
+	stack->size++;
+	return (0);
+}
+
+int	put_stack(t_stack *stack, int data)
+{
+	t_stack_node	*new_node;
+
+	if (stack == NULL)
+		return (-1);
+	new_node = create_new_node(data);
+	if (stack->head == NULL)
+	{
+		stack->head = new_node;
+		stack->top = new_node;
+	}
+	else
+	{
+		new_node->next = stack->head;
+		stack->head->prev = new_node;
+		stack->head = new_node;
+	}
 	stack->size++;
 	return (0);
 }

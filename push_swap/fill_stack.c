@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:43:17 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/08 18:26:27 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 18:53:39 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	valid_args(char *av, t_stack *stack_a)
 			error_exit(stack_a, NULL);
 		if (check_duplicate(stack_a, (int)data) == ERROR)
 			error_exit(stack_a, NULL);
-		push(stack_a, (int)data);
+		put_stack(stack_a, (int)data);
 		i++;
 	}
 	free_two_dementional_array(numbers);
