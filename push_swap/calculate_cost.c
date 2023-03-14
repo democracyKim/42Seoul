@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:35:42 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 20:37:10 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 20:50:43 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@ static size_t	get_passing_cost(size_t index, size_t size)
 		return (rb_count);
 	else
 		return (rrb_count);
-}
-
-void	cheapest_to_top_b(t_stack *stack_b, size_t number, int flag)
-{
-	while (number)
-	{
-		if (flag == RB)
-			rb(stack_b);
-		else
-			rrb(stack_b);
-		number--;
-	}
 }
 
 int	is_biggest_num(t_stack *stack_a, int number)
@@ -79,6 +67,17 @@ static size_t	get_sorting_cost(t_stack *stack_a, int number)
 	return (cost);
 }
 
+static void	get_cost(t_stack *stack_a, t_stack *stack_b, \
+	t_stack_node *node, size_t index)
+{
+	size_t	cost;
+
+	cost = 0;
+	cost += get_passing_cost(index, stack_size(stack_b));
+	cost += get_sorting_cost(stack_a, node->data);
+	node->cost = cost;
+}
+
 size_t	get_min_cost_index(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t			min_cost;
@@ -94,13 +93,11 @@ size_t	get_min_cost_index(t_stack *stack_a, t_stack *stack_b)
 	min_cost = INT_MAX;
 	while (dummy)
 	{
-		cost = 0;
-		cost += get_passing_cost(index, stack_size(stack_b));
-		cost += get_sorting_cost(stack_a, dummy->data);
-		dummy->cost = cost;
+		get_cost(stack_a, stack_b, dummy, index);
+		cost = dummy->cost;
 		if (cost < min_cost)
 		{
-			min_cost = cost;
+			min_cost = dummy->cost;
 			min_index = index;
 		}
 		index++;

@@ -6,7 +6,7 @@
 /*   By: minkim3 <minkim3@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:39:50 by minkim3           #+#    #+#             */
-/*   Updated: 2023/03/14 19:20:28 by minkim3          ###   ########.fr       */
+/*   Updated: 2023/03/14 20:50:57 by minkim3          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,16 @@ int	sort_b(t_stack *stack_b)
 	else
 		return (CONTINUE);
 	return (COMPLETE);
+}
+
+void	cheapest_to_top_b(t_stack *stack_b, size_t number, int flag)
+{
+	while (number)
+	{
+		if (flag == RB)
+			rb(stack_b);
+		else
+			rrb(stack_b);
+		number--;
+	}
 }
